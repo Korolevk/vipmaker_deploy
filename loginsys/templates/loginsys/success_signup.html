@@ -1,0 +1,13 @@
+{% extends 'alibaba/base_user.html' %}
+
+{% block body %}
+    <table class="forma" align="center" style="margin-top: 100px;">
+        <tr>
+            <td>
+                <h1>Вы успешно зарегестрировались, теперь войдите в свой аккаунт!</h1>
+                <p>Удачи Вам на форуме {{ username }}!</p>
+                <a href="/auth/login/">Войти</a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

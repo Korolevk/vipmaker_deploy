@@ -1,0 +1,125 @@
+{% extends 'alibaba/base_user.html' %}
+{% load staticfiles %}
+{% block title %}
+Поиск {{ user.user_name }}
+{% endblock %}
+
+{% block body %}
+    <table align="center" style="margin-top: 50px;">
+        <tr>
+            <td>
+                <form action="/search/" method="get" class="search_form">
+{#                    {% csrf_token %}#}
+                    <input class="search_input" type="text" name="query_search" placeholder="Введите имя, логин или слово..."/>
+{#                    <input class="button_search" type="submit" name="submit" value="Поиск"><br />#}
+                    <button class="button_search">Поиск</button>
+                    <select name="select_search" id="select_search" style="margin: 10px 20px;">
+                        <option name="as_people" selected value="По людям">По людям</option>
+                        <option name="as_posters" value="По записям">По записям</option>
+                    </select>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+<table class="results" align="center" style="margin-top: 30px;">
+
+{% if select_search == 'По записям' %}
+{# -------------------- posters --------------------- #}
+    {% if error == None %}
+        {% for query_poster in posters_in_query reversed %}
+            <tr>
+                {% if poster.username == my_login %}
+                    <td style="width: 60px;height: 50px;vertical-align: top;">
+                        <a class="a_photo" href="{% url 'user' my_login %}" style="width: 60px;position: absolute;height: 60px;background-image: url({{ query_poster.poster_photo.url }});background-size: cover;">>
+{#                            <img src="{{ query_poster.poster_photo.url }}" alt="Добавьте фото" width="50">#}
+                        </a>
+                    </td>
+                {% else %}
+                    <td style="width: 60px;height: 50px;vertical-align: top;">
+                        <a class="a_photo" href="{% url 'user' query_poster.username %}" style="width: 60px;position: absolute;height: 60px;background-image: url({{ query_poster.poster_photo.url }});background-size: cover;">
+{#                            <img src="{{ query_poster.poster_photo.url }}" alt="Добавьте фото" width="50">#}
+                        </a>
+                    </td>
+                {% endif %}
+                    <td><p class="name_on_wall">{{ query_poster.name_of_user|truncatechars:15 }}</p></td>
+                    <td><p class="date_on_wall">{{ query_poster.date_of_poster_add }}</p></td>
+                {% if query_poster.username == my_login %}
+                    <td><p class="delete_on_wall"><a href="/poster/delete/{{ query_poster.id }}/{{ user.username }}/">✕</a></p></td>
+                {% else %}
+                    <td><p class="delete_on_wall"><i class="del_none" style="padding: 0px 16px;"></i></p></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <p class="text_on_wall">
+                        {% if not query_poster.poster_file and query_poster.text == ''%}
+                            Пустая запись
+                        {% else %}
+                            {{ query_poster.text }}
+                        {% endif %}
+{#                        {{ query_poster.text }}#}
+                    </p>
+                    {% if query_poster.poster_file %}
+                        <a target="_blank" href="{{ query_poster.poster_file.url }}"><img style="max-width: 590px;" src="{{ query_poster.poster_file.url }}" alt="Редактируемый файл, нажмите сюда чтобы загрузить."></a>
+                    {% endif %}
+{#                    <p>{{ query_poster.id }}</p>#}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4"><p class="like"><a href="/poster/add_like/{{ query_poster.id }}/{{ query_poster.poster.username }}/?from=search&query_search={{ query_search }}&select_search={{ select_search }}"><img src="{% static 'alibaba/images/icon.png' %}" width="35" alt="Мне нравится">{{ query_poster.likes }}</a></p></td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td><p class="query_error">{{ error }}</p></td>
+        </tr>
+    {% endif %}
+
+{% elif select_search == 'По людям' %}
+{# -------------------- users --------------------- #}
+    {% if error == None %}
+        {% for photo_of_users in photoes_of_users %}
+            <tr>
+                <td class="td_wall">
+                    <table>
+                        <tr>
+                            <td style="width: 120px;height: 150px">
+                                <a href="/user/{{ photo_of_users.username_photo }}/" style="width: 100px;position: absolute;height: 100px;background-image: url({{ photo_of_users.profile_photo.url }});background-size: cover;">
+{#                                    <img class="photo_on_wall_search" src="{{ photo_of_users.profile_photo.url }}" width="120">#}
+                                </a>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <a href="/user/{{ photo_of_users.username_photo }}/">
+                                                <p class="name_on_wall">{{ photo_of_users.first_name_photo }}</p>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        {% if photo_of_users.username_photo == my_login%}
+                                            <a href="#" class="follow_button_gray" >Это вы</a>
+                                        {% elif photo_of_users.username_photo in i_follow_list %}
+                                            <a href="/add_follow/{{ photo_of_users.username_photo  }}/?from=search&query_search={{ query_search }}&select_search={{ select_search }}}" class="follow_button_false" >Отписаться</a>
+                                        {% elif photo_of_users.username_photo not in i_follow_list %}
+                                            <a href="/add_follow/{{ photo_of_users.username_photo  }}/?from=search&query_search={{ query_search }}&select_search={{ select_search }}" class="follow_button" >Подписаться</a>
+                                        {% endif %}
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td><p class="query_error">{{ error }}</p></td>
+        </tr>
+    {% endif %}
+
+{% endif %}
+</table>
+{% endblock %}

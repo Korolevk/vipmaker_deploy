@@ -1,0 +1,138 @@
+{% extends 'alibaba/base_user.html' %}
+{% load staticfiles %}
+{% block title %}
+Настройки | {{ user.username }}
+{% endblock %}
+
+{% block body %}
+    <table class="forma forma_settings" align="center" style="margin-top: 50px;">
+        <tr>
+            <td colspan="2"><p class="settings_title">Изменить фото профиля</p></td>
+        </tr>
+        <tr>
+            <td style="width: 180px;height: 150px;vertical-align: top;">
+{#                <img src="{{ img_url }}" alt="Добавьте фото" width="150">#}
+                <a href="#" style="width: 145px;position: absolute;height: 145px;background-image: url({{ img_url }});background-size: cover;"></a>
+            </td>
+            <td>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+{#                    <input class="_input" type="file" name="profile_photo" /><br />#}
+                      {{ photo_update_form.as_p }}
+                    <input type="submit" name="submit" value="Изменить" class="main_button"><br />
+                    <input type="submit" name="del" value="Удалить фото" class="main_button">
+                </form>
+                {% if photo_error == 'Это фото по умолчанию!' %}
+                    <p class="error">{{ photo_error }}</p>
+                {% elif cover_error == 'Это обложка по умолчанию!' %}
+                    <p class="error">{{ cover_error }}</p>
+                {% elif photo_error == 'Фотография изменена'%}
+                    <p class="good">{{ photo_error }}</p>
+                {% elif cover_error == 'Обложка изменена'%}
+                    <p class="good">{{ cover_error }}</p>
+                {% elif cover_error == 'Неизвестная ошибка'%}
+                    <p class="error">{{ cover_error }}</p>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><p class="settings_title">Изменить Обложку профиля</p></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="fon_settings" style="background: url({{ cover_url }}) no-repeat 100% 45%;background-size: cover;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <form action="/change_cover/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+{#                    <input class="_input" type="file" name="profile_photo" /><br />#}
+                    {{ cover_update_form.as_p }}
+                    <input type="submit" name="submit" value="Изменить" class="main_button"><br />
+                    <input type="submit" name="del" value="Удалить обложку" class="main_button">
+                </form>
+                {% if file_error == 'Неверный пароль' %}
+                    <p class="error">{{ error }}</p>
+                {% elif file_error == 'Имя изменено!'%}
+                    <p class="good">Имя изменено!</p>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><p class="settings_title">Изменить имя</p></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <form action="/change_name/" method="post">
+                    {% csrf_token %}
+                    <input class="_input" type="text" name="new_name" placeholder="Новое имя"><br />
+                    <input class="_input" type="password" name="pass" placeholder="Пароль"><br />
+                    <input type="submit" name="submit" value="Изменить" class="main_button">
+                </form>
+                {% if error == 'Неверный пароль' %}
+                    <p class="error">{{ error }}</p>
+                {% elif error == 'Имя изменено!'%}
+                    <p class="good">Имя изменено!</p>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><p class="settings_title">Изменить пароль</p></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <form action="/change_password/" method="post">
+                    {% csrf_token %}
+                    <input class="_input" type="password" name="old_pass" placeholder="Старый пароль"><br />
+                    <input class="_input" type="password" name="new_pass" placeholder="Новый пароль"><br />
+                    <input class="_input" type="password" name="new_pass2" placeholder="Повторите пароль"><br />
+                    <input type="submit" name="submit" value="Изменить" class="main_button">
+                </form>
+                {% if error == 'Пароли не совпадают!' or error == 'Неправильный старый пароль!' %}
+                    <p class="error">{{ error }}</p>
+                {% elif error == 'Пароль успешно изменен!'%}
+                    <p class="good">Пароль успешно изменен!</p>
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><p class="settings_title">Изменить логин</p></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <form action="/change_username/" method="post">
+                    {% csrf_token %}
+                    <input class="_input" type="text" name="username" placeholder="Введите новое имя пользователя"><br />
+                    <input class="_input" type="password" name="pass" placeholder="Пароль"><br />
+                    <input type="submit" name="submit" value="Изменить" class="main_button">
+                </form>
+                {% if login_settings_error == 'Неверный пароль' or login_settings_error == 'Такой логин уже у другого пользователя' %}
+                    <p class="error">{{ login_settings_error }}</p>
+                {% elif login_settings_error == 'Логин изменен!'%}
+                    <p class="good">Логин изменен!</p>
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><p class="settings_title">Основные настройки</p></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <form action="/base_settings/" method="post">
+                    {% csrf_token %}
+                    <input class="_input" type="email" name="email" placeholder="Введите email"><br />
+                    <input class="_input" type="password" name="pass" placeholder="Пароль"><br />
+                    <input type="submit" name="submit" value="Изменить" class="main_button">
+                </form>
+                {% if base_settings_error == 'Неверный пароль' %}
+                    <p class="error">{{ base_settings_error }}</p>
+                {% elif base_settings_error == 'Email изменен!'%}
+                    <p class="good">Email изменен!</p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+{% endblock %}

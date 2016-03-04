@@ -1,0 +1,114 @@
+{% extends 'alibaba/base_user.html' %}
+{% load staticfiles %}
+{% block title %}
+{{ user.user_name }}
+{% endblock %}
+
+{% block body %}
+    <div class="darkfon"></div>
+    <div class="fon" style="background: url({{ cover_url }}) no-repeat 100% 45%;background-size: cover;"></div>
+    <table align="center" style="margin-top: -235px;z-index: 43;position: relative;">
+        <tr>
+            <td>
+                <table>
+                    <tr style="vertical-align: top;">
+                        <td style="width: 180px;height: 150px">
+                            <a href="#" style="width: 145px;position: absolute;height: 145px;background-image: url({{ img_url }});background-size: cover;border-radius: 3px;"></a>
+                              <div class="add_follow_form">
+                                {% if login == my_login %}
+                                    <a href="/settings/" class="add_follow_to_user_b_me" >Настройки</a>
+                                {% else %}
+                                    {% if button_status == 'not_follow' %}
+                                        <a href="/add_follow/{{ login }}/" class="add_follow_to_user_b" >Подписаться</a>
+                                    {% elif button_status == 'already_follow' %}
+                                        <a href="/add_follow/{{ login }}/" class="add_follow_to_user_b_false" >Отписаться</a>
+                                    {% endif %}
+                                {% endif %}
+                              </div>
+                        </td>
+                        <td><h1 style="color: #fff;padding: 0px 15px;">{{ user.first_name|truncatechars:25 }}</h1><p style="color: #989898;padding: 0px 15px;">{{ user.username|truncatechars:25 }}</p>
+                            <table class="info">
+                                <tr>
+                                    <td><a href="#">{{ count_posters }} {{ word }}</a></td>
+                                    <td><a href="{% url 'my_followers_page' login %}">подписчиков: {{ me_follow_count }}</a></td>
+                                    <td><a href="{% url 'follow_page' login %}">подписок: {{ i_follow_count }}</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form class="forma" enctype="multipart/form-data" action="/posters/add_poster/{{ user.username }}/" method="post" style="padding: 80px 0px 50px 0px;">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <table>
+                        <tr>
+                            <td>
+{#                                  <input type="file" name="poster_file" id="poster_file" class="poster_file" />#}
+                                  <label class="label_poster_file" for="poster_file"> +&nbsp;Прикрепить&nbsp;фото</label>
+                            </td>
+                            <td><p style="width: 100px;text-align: right;">Вы&nbsp;{{ my_login|truncatechars:12 }}</p></td>
+                            <td><input class="button_forma" type="submit" name="submit" value="Отправить"></td>
+                        </tr>
+                    </table>
+                </form>
+
+            </td>
+        </tr>
+        {% for poster in posters reversed %}
+        <tr>
+            <td class="td_wall">
+                <table>
+                    <tr>
+                        {% if poster.username == my_login %}
+                            <td style="width: 60px; height: 60px;">
+                                <a class="a_photo" href="{% url 'user' my_login %}" style="width: 60px;position: absolute;height: 60px;background-image: url({{ poster.poster_photo }});background-size: cover;">
+                            </a></td>
+                        {% else %}
+                            <td style="width: 60px; height: 60px;">
+                                <a class="a_photo" href="{% url 'user' poster.username %}" style="width: 60px;position: absolute;height: 60px;background-image: url({{ poster.poster_photo }});background-size: cover;">
+                                </a></td>
+                        {% endif %}
+                        <td><p class="name_on_wall">{{ poster.name_of_user|truncatechars:15 }}</p></td>
+                        <td><p class="date_on_wall">{{ poster.date_of_poster_add }}</p></td>
+                        {% if user.username == my_login %}
+                            <td><p class="delete_on_wall"><a href="/poster/delete/{{ poster.id }}/{{ user.username }}/">✕</a></p></td>
+                        {% elif poster.username == my_login %}
+                            <td><p class="delete_on_wall"><a href="/poster/delete/{{ poster.id }}/{{ user.username }}/">✕</a></p></td>
+                        {% else %}
+                            <td><p class="delete_on_wall"><i class="del_none" style="padding: 0px 16px;"></i></p></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <p class="text_on_wall">
+                                {% if not poster.poster_file and poster.text == ''%}
+                                    Пустая запись
+                                {% else %}
+                                    {{ poster.text }}
+                                {% endif %}
+                            </p>
+{#                            <p>{{ poster.id }}</p>#}
+                            {% if poster.poster_file %}
+                                <a target="_blank" href="{{ poster.poster_file.url }}"><img style="max-width: 590px;" src="{{ poster.poster_file.url }}" alt="Редактируемый файл, нажмите сюда чтобы загрузить."></a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><p class="like"><a href="/poster/add_like/{{ poster.id }}/{{ user.username }}/"><img src="{% static 'alibaba/images/icon.png' %}" width="35" alt="Мне нравится">{{ poster.likes }}</a></p></td>
+                    </tr>
+                </table>
+{#                <p class="name_on_wall">{{ poster.name_of_user }}</p>#}
+{#                <p class="date_on_wall">{{ poster.date_of_poster_add }}</p>#}
+{#                <p class="delete_on_wall"><a href="#">✕</a></p>#}
+{#                <p class="text_on_wall">{{ poster.text }}</p>#}
+{#                <p class="like"><a href="/poster/{{ user_id }}_{{ poster.id }}/add_like/"><img src="{% static 'alibaba/images/icon.png' %}" width="35" alt="Мне нравится">{{ poster.likes }}</a></p>#}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}

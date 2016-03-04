@@ -1,0 +1,56 @@
+{% extends 'alibaba/base_user.html' %}
+
+{% block title %}
+    Подписки
+{% endblock %}
+
+{% block body %}
+    <table align="center" style="margin-top: 30px;">
+        <tr>
+            <td>
+                {% if user.username == my_login %}
+                    <h1>Интересные мне страницы</h1>
+                {% else %}
+                    <h1><a href="{% url 'user' user.username %}">@{{ user.username }}</a> подписан(a) на:</h1>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <table class="results" align="center" style="margin-top: 30px;">
+    {% for follower in i_follow %}
+        <tr>
+            <td class="td_wall">
+                <table>
+                    <tr>
+                        <td style="width: 120px;height: 150px">
+                            <a href="/user/{{ follower.follow_username }}/" style="width: 100px;position: absolute;height: 100px;background-image: url({{ follower.follow_photo.url }});background-size: cover;">
+                            </a>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="/user/{{ follower.follow_username }}/">
+                                            <p class="name_on_wall">{{ follower.follow_first_name }}</p>
+                                        </a>
+{#                                        <p>{{ i_follow_list_me }}</p>#}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    {% if follower.follow_username == my_login %}
+                                        <a href="#" class="follow_button_gray" >Это вы</a>
+                                    {% elif follower.follow_username in i_follow_list_me %}
+                                        <a href="/add_follow/{{ follower.follow_username  }}/?from=follow_page&who_page={{ user.username }}" class="follow_button_false" >Отписаться</a>
+                                    {% elif follower.follow_username not in i_follow_list_me %}
+                                        <a href="/add_follow/{{ follower.follow_username  }}/?from=follow_page&who_page={{ user.username }}" class="follow_button" >Подписаться</a>
+                                    {% endif %}
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

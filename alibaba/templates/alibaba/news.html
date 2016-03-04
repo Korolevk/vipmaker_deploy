@@ -1,0 +1,68 @@
+{% extends 'alibaba/base_user.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Новости
+{% endblock %}
+
+{% block body %}
+    <table align="center" style="margin-top: 30px;">
+        <tr>
+            <td>
+                <h1>Что нового</h1>
+{#                <p>{{ z.followers_username }}</p> Все подписчики, чтобы вывести новости#}
+            </td>
+        </tr>
+    </table>
+    <table class="results" align="center" style="margin-top: 30px;">
+
+    {% for poster in posters reversed %}
+        <tr>
+            <td class="td_wall">
+                <table>
+                    <tr>
+                        {% if poster.username == my_login %}
+                            <td style="width: 60px; height: 60px;">
+                                <a class="a_photo" href="{% url 'user' my_login %}" style="width: 60px;position: absolute;height: 60px;background-image: url({{ poster.poster_photo }});background-size: cover;">
+                            </a></td>
+                        {% else %}
+                            <td style="width: 60px; height: 60px;">
+                                <a class="a_photo" href="{% url 'user' poster.username %}" style="width: 60px;position: absolute;height: 60px;background-image: url({{ poster.poster_photo }});background-size: cover;">
+                                </a>
+                            </td>
+                        {% endif %}
+                        <td><p class="name_on_wall">{{ poster.name_of_user|truncatechars:15 }}</p></td>
+                        <td><p class="date_on_wall">{{ poster.date_of_poster_add }}</p></td>
+                        {% if poster.username == my_login %}
+                            <td><p class="delete_on_wall"><a href="/poster/delete/{{ poster.id }}/{{ user.username }}/">✕</a></p></td>
+{#                        {% elif poster.username == my_login %}#}
+{#                            <td><p class="delete_on_wall"><a href="/poster/delete/{{ poster.id }}/{{ user.username }}/">✕</a></p></td>#}
+                        {% else %}
+                            <td><p class="delete_on_wall"><i class="del_none" style="padding: 0px 16px;"></i></p></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <p class="text_on_wall">
+                                {% if not poster.poster_file and poster.text == ''%}
+                                    Пустая запись
+                                {% else %}
+                                    {{ poster.text }}
+                                {% endif %}
+                            </p>
+{#                            <p>{{ poster.id }}</p>#}
+                            {% if poster.poster_file %}
+                                <a target="_blank" href="{{ poster.poster_file.url }}"><img style="max-width: 590px;" src="{{ poster.poster_file.url }}" alt="Редактируемый файл, нажмите сюда чтобы загрузить."></a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><p class="like"><a href="/poster/add_like/{{ poster.id }}/{{ poster.poster.username }}/?from=news"><img src="{% static 'alibaba/images/icon.png' %}" width="35" alt="Мне нравится">{{ poster.likes }}</a></p></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    {% endfor %}
+
+    </table>
+{% endblock %}

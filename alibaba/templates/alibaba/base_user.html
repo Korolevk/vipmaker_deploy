@@ -1,0 +1,410 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<style>
+    header{
+        background-color: #272727;
+        border: none;
+    }
+    .logo_span{
+        color: #352D02;
+        background-color: #EFCC18;
+        padding: 5px 8px;
+        margin: 10px;
+        border-radius: 2px;
+        font-size: 26px;
+    }
+    .main_button{
+        background: #1daa09 linear-gradient(to bottom,#78d81f,#1daa09);
+        box-shadow: inset 0 -1px 0 0 #21900d;
+        text-shadow: 0 1px 0 #458f11;
+        border: none;
+        outline: none;
+        font-family: sans-serif;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 275px;
+        padding: 10px;
+        margin: 10px 0px;
+    }
+    .darkfon{
+{#        background: linear-gradient(to top, rgba(4, 4, 4, 0.8) 45%, rgba(255, 255, 255, 0) 100%);#}
+        background: linear-gradient(to top, rgba(4, 4, 4, 0.5) 45%, rgba(255, 255, 255, 0) 140%);
+        width: 100%;
+        height: 380px;
+        background-size: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+    .fon{
+{#        background: url({% static 'alibaba/images/fon.jpg' %}) no-repeat 100% 45%;#}
+        width: 100%;
+        height: 380px;
+    }
+    .info a{
+        color: white;
+    }
+    .add_follow_form{
+        margin-top: 185px;
+            position: absolute;
+    }
+    .add_follow_to_user_b{
+        background: #1daa09 linear-gradient(to bottom,#78d81f,#1daa09);
+        box-shadow: inset 0 -1px 0 0 #21900d;
+        text-shadow: 0 1px 0 #458f11;
+        border: 1px solid #21900D;
+        outline: none;
+        font-family: sans-serif;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 35px;
+        border-radius: 3px;
+    }
+    .add_follow_to_user_b_false{
+        background: #FF0800 linear-gradient(to bottom, #FF2F00, #FF0101);
+        outline: none;
+        font-family: sans-serif;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 41px;
+        border-radius: 3px;
+    }
+    .add_follow_to_user_b_me{
+        background-color: #ABABAB;
+        border: 1px solid #8A8A8A;
+        outline: none;
+        font-family: sans-serif;
+        color: #525252;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 3px;
+        padding: 10px 43px;
+    }
+    .fon_settings{
+{#        background: url({% static 'alibaba/images/fon.jpg' %}) no-repeat 100% 45%;#}
+        width: 440px;
+        height: 200px;
+    }
+    body{
+        margin:0;
+        padding:0;
+        overflow-x: hidden;
+    }
+    a{
+        text-decoration: none;
+        font-family: sans-serif;
+        font-weight: bold;
+        padding: 10px;
+    }
+    .a_photo{
+        padding: 0px;
+    }
+    h1 {
+        font-family: sans-serif;
+    }
+    p {
+        font-family: sans-serif;
+    }
+    .menu_a{
+        color: white;
+        padding: 30px 10px;
+    }
+    .menu_a:hover{
+        border-bottom: 5px solid #FFE94C;
+    }
+    .error{
+        background-color: #FF3131;
+        display: block;
+        text-align: center;
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+    }
+    .good{
+        background-color: #27FF00;
+        display: block;
+        text-align: center;
+        padding: 15px;
+        color: #234817;
+        font-weight: bold;
+    }
+    .logo a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+    ._input{
+        width: 250px;
+        padding: 10px;
+        margin: 10px 0px;
+    }
+    .forma p{
+        margin: 10px 0px;
+    }
+    .settings_title{
+        margin: 10px 0px;
+        background-color: rgba(255, 224, 0, 0.7);
+        padding: 10px;
+        font-weight: 700;
+        font-family: sans-serif;
+        text-align: center;
+    }
+    .td_wall{
+        border-bottom: 1px solid rgba(169, 169, 169, 0.3);
+
+    }
+    .td_wall td{
+        vertical-align: top;
+    }
+    form label{
+        display: none;
+    }
+    .textarea{
+        resize: none;
+        outline: none;
+        font-family: sans-serif;
+        padding: 10px;
+        font-size: 19px;
+        border: 1px solid #DEDEDE;
+    }
+    .button_forma{
+        float: right;
+        padding: 10px;
+        width: 180px;
+        border-radius: 2px;
+        margin: 10px;
+        background: #FFF700 linear-gradient(to bottom,#FFE14F 0,#FF7600 100%);
+        border: none;
+        outline: none;
+        font-family: sans-serif;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .button_forma:hover {
+        background: #FFC800 linear-gradient(to bottom, #FFE14F 0, #E44A00 100%);
+    }
+    .poster_file{
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    .label_poster_file{
+        margin-left: 170px;
+        float: right;
+        padding: 10px;
+        width: 108px;
+        border-radius: 2px;
+{#        background: #FFF700 linear-gradient(to bottom,#FFE14F 0,#FF7600 100%);#}
+        border: none;
+        outline: none;
+        font-family: sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+        color: #868686;
+        display: inline-block;
+    }
+    .name_on_wall{
+        background-color: rgba(255, 224, 0, 0.7);
+        display: inherit;
+        padding: 10px;
+        font-weight: 700;
+        font-family: sans-serif;
+        width: 150px;
+        max-width: 150px;
+        text-align: center;
+        color: black;
+    }
+    .date_on_wall{
+        background-color: rgba(255, 255, 255, 0.23);
+        display: inherit;
+        padding: 10px;
+        width: 300px;
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+    .text_on_wall{
+        margin-left: 30px;
+        margin-top: 20px;
+        max-width: 540px;
+    }
+    .like{
+        text-align: right;
+    }
+    .like a{
+        background-color: #E64C3C;
+        color: white;
+    }
+    .like img{
+        position: relative;
+        top: 12px;
+        left: -2px;
+    }
+    .delete_on_wall{
+        display: inherit;
+{#        width: 283px;#}
+        text-align: right;
+    }
+    .delete_on_wall a{
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #FF5E00;
+        color: white;
+        padding: 6px 8px;
+    }
+    .del_none{
+        font-size: 20px;
+        font-weight: bold;
+        background-color: white;
+        color: white;
+        padding: 6px 8px;
+    }
+    .search_form{
+        background-color: #F1F1F1;
+        width: 600px;
+    }
+    .search_input{
+        margin: 16px;
+        padding: 7px 12px;
+        border: none;
+        cursor: pointer;
+        width: 445px;
+        font-size: 15px;
+        font-family: sans-serif;
+        outline-color: #FF7E06;
+    }
+    .button_search{
+        background: #FFF700 linear-gradient(to bottom,#FFE14F 0,#FF7600 100%);
+        outline: none;
+        font-family: sans-serif;
+        color: #3E1A00;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 7px 14px;
+        border-radius: 2px;
+        border: 1px solid #FF7E06;
+    }
+    .follow_button{
+        background: #1daa09 linear-gradient(to bottom,#78d81f,#1daa09);
+        box-shadow: inset 0 -1px 0 0 #21900d;
+        text-shadow: 0 1px 0 #458f11;
+        outline: none;
+        font-family: sans-serif;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 7px 14px;
+        border-radius: 2px;
+        border: none;
+        position: relative;
+        top: 70px;
+        left: 12px;
+    }
+    .follow_button_false{
+        background: #FF0800 linear-gradient(to bottom, #FF2F00, #FF0101);
+        outline: none;
+        font-family: sans-serif;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 7px 14px;
+        border-radius: 2px;
+        border: none;
+        position: relative;
+        top: 70px;
+        left: 12px;
+    }
+    .follow_button_gray{
+        background: #B5B5B5 linear-gradient(to bottom,#9E9E9E,#929292);
+        box-shadow: inset 0 -1px 0 0 #6B6B6B;
+        text-shadow: 0 1px 0 #3C3C3C;
+        outline: none;
+        font-family: sans-serif;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 7px 14px;
+        border-radius: 2px;
+        border: none;
+        position: relative;
+        top: 70px;
+        left: 12px;
+    }
+    .find{
+        background-color: #ff0800;
+    }
+    .query_error{
+        font-size: 15px;
+        color: #565656;
+        text-align: center;
+    }
+    .results{
+        margin-top: 30px;
+        width: 600px;
+    }
+</style>
+<body>
+    <header>
+        <table style="width: 100%;">
+            <tr>
+                {% if user.username %}
+                    <td class="logo"><h1><a href="{% url 'user' user.username %}">Vipmaker<span class="logo_span">gold</span></a></h1></td>
+                {% else %}
+                    <td class="logo"><h1><a href="/">Vipmaker<span class="logo_span">gold</span></a></h1></td>
+                {% endif %}
+                <td align="right">
+                    <table>
+                        <tr>
+{#                            <td><a class="menu_a" href="{% url 'user' user.login %}">Моя&nbsp;страница</a></td>#}
+{#                            <td><a class="menu_a" href="{% url 'settings' user.login %}">Настройки</a></td>#}
+                            {% if user.username %}
+                                <td><a class="menu_a" href="{% url 'user' my_login %}">{{ my_login|truncatechars:10 }}</a></td>
+                                <td><a class="menu_a" href="{% url 'news' %}">Новости</a></td>
+                                <td><a class="menu_a" href="{% url 'search' %}">Поиск</a></td>
+                                <td><a class="menu_a" href="{% url 'settings' %}">Настройки</a></td>
+                                <td><a style="margin: 0px 40px 0px 0px;" class="menu_a" href="/auth/logout/">Выйти</a></td>
+                            {% else %}
+                                <td><a style="margin: 0px 40px 0px 0px;" class="menu_a" href="/auth/login/">Войти</a></td>
+                            {% endif %}
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <footer style="margin-top: 50px;">
+        <table align="center">
+            <tr>
+                {% if user.username %}
+                <td><a href="#">О нас</a></td>
+                {% else %}
+                <td><a href="/auth/signup/">Регистрация</a></td>
+                {% endif %}
+                <td><p>|</p></td>
+                <td><p style="font-family: monospace;background-color: yellow;">a Kirill Korolev Production &copy; 2016</p></td>
+            </tr>
+        </table>
+    </footer>
+</body>
+</html>

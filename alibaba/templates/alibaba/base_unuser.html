@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<style>
+    body{
+        margin:0;
+        padding:0;
+    }
+    a{
+        text-decoration: none;
+        font-family: sans-serif;
+        font-weight: bold;
+        padding: 10px;
+    }
+    h1 {
+        font-family: sans-serif;
+    }
+    p {
+        font-family: sans-serif;
+    }
+    .logo a{
+        text-decoration: none;
+        color: rgb(30, 30, 30);
+    }
+    .forma input{
+        padding: 10px;
+        width: 250px;
+        margin: 10px;
+    }
+    .forma p {
+        margin: 10px;
+    }
+    form label{
+        display: none;
+    }
+</style>
+<body>
+    <header>
+        <table style="border-bottom: 1px solid red; width: 100%;">
+            <tr>
+                <td class="logo"><h1><a href="{% url "welcome" %}">Vipmaker</a></h1></td>
+                <td><a href="{% url "signup" %}">Регистрация</a></td>
+            </tr>
+        </table>
+    </header>
+    {% block body %}{% endblock %}
+    <footer style="margin-top: 50px;">
+        <table align="center">
+            <tr>
+                <td><a href="#">О нас</a></td>
+                <td><a href="#">Регистрация</a></td>
+                <td><p>|</p></td>
+                <td><p style="font-family: monospace;background-color: yellow;">a Kirill Korolev Production &copy; 2016</p></td>
+            </tr>
+        </table>
+    </footer>
+</body>
+</html>

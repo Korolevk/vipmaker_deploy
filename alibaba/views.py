@@ -218,6 +218,13 @@ def change_name(request):
             args['user'].save()
             posters = WallPoster.objects.filter(username=auth.get_user(request).username)
             posters.update(name_of_user=name)
+            users_in_query = Photo.objects.filter(username_photo=auth.get_user(request).username)
+            users_in_query.update(first_name_photo=name)
+
+            users_follow = Follow.objects.filter(follow_username=auth.get_user(request).username)
+            users_follow.update(follow_first_name=name)
+            users_followers = Follow.objects.filter(followers_username=auth.get_user(request).username)
+            users_followers.update(followers_first_name=name)
             args['error'] = 'Имя изменено!'
         else:
             args['error'] = 'Неверный пароль'
@@ -374,9 +381,9 @@ def news(request):
 
     args['i_follow'] = Follow.objects.filter(profile=args['user']).values_list('follow_username', flat=True)
 
-    args['a'] = Follow.objects.filter(profile=args['user']).values_list('follow_username', flat=True)
+    # args['a'] = Follow.objects.filter(profile=args['user']).values_list('follow_username', flat=True)
 
-    args['posters'] = WallPoster.objects.filter(username__in=args['a'])
+    args['posters'] = WallPoster.objects.filter(username__in=args['i_follow'])
     return render(request, 'alibaba/news.html', args)
 
 # --- Search Page ---
@@ -536,6 +543,7 @@ def add_poster(request, login):
             # user = auth.get_user(request)
             forma.name_of_user = User.objects.get(username=auth.get_user(request).username).first_name
             forma.poster = user1
+            forma.who_wall = user1.username
             forma.username = User.objects.get(username=auth.get_user(request).username)
             month = datetime.datetime.now().month
             now = datetime.datetime.now().strftime("%d {mounth} %Y {v} %H:%M").format(mounth=kirill.mounths[month], v='в')

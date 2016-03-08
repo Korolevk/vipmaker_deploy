@@ -15,8 +15,9 @@
         </tr>
     </table>
     <table class="results" align="center" style="margin-top: 30px;">
-
     {% for poster in posters reversed %}
+    {#    Записи только на стене автора    #}
+        {% if poster.username == poster.who_wall %}
         <tr>
             <td class="td_wall">
                 <table>
@@ -62,6 +63,7 @@
                 </table>
             </td>
         </tr>
+        {% endif %}
     {% endfor %}
 
     </table>

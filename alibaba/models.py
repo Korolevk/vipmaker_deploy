@@ -17,6 +17,7 @@ class WallPoster(models.Model):
     text = models.TextField(blank=True)
     date_of_poster_add = models.CharField(max_length=100, default='')
     likes = models.IntegerField(default=0)
+    who_wall = models.CharField(max_length=100, default='')
 
     def __str__(self):
         return self.text+' | '+self.name_of_user

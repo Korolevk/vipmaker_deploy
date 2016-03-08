@@ -43,7 +43,12 @@
                     </td>
                 {% endif %}
                     <td><p class="name_on_wall">{{ query_poster.name_of_user|truncatechars:15 }}</p></td>
-                    <td><p class="date_on_wall">{{ query_poster.date_of_poster_add }}</p></td>
+{#                    <td><p class="date_on_wall">{{ query_poster.date_of_poster_add }}</p></td>#}
+                    {% if query_poster.username == query_poster.who_wall %}
+                        <td><p class="date_on_wall"> написал(а) на своей стене </p></td>
+                    {% else %}
+                        <td><p class="date_on_wall"> написал(а) на стене <a href="/user/{{ query_poster.who_wall }}/" style="color: #272727;padding: 0px;">{{ query_poster.who_wall|truncatechars:7 }}</a></p></td>
+                    {% endif %}
                 {% if query_poster.username == my_login %}
                     <td><p class="delete_on_wall"><a href="/poster/delete/{{ query_poster.id }}/{{ user.username }}/">✕</a></p></td>
                 {% else %}

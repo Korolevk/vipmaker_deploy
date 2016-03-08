@@ -1,11 +1,31 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <style>
+    p,h1{
+        cursor:default;
+    }
+    body::-webkit-scrollbar {
+        width: 0.9em;
+    }
+
+    body::-webkit-scrollbar-track {
+        {#    -webkit-box-shadow: inset 0 0 6px rgba(255, 227, 0, 1);#}
+        background-color: rgb(255, 255, 255);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        border: 2px solid rgb(255, 255, 255);
+        border-radius:1000px;
+        background-color: #272727;
+{#        border-radius: 1000px;#}
+{#        outline: 1px solid #14ff00;#}
+    }
+
     header{
         background-color: #272727;
         border: none;
@@ -95,6 +115,7 @@
 {#        background: url({% static 'alibaba/images/fon.jpg' %}) no-repeat 100% 45%;#}
         width: 440px;
         height: 200px;
+        padding:10px;
     }
     body{
         margin:0;

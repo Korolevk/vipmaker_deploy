@@ -2,8 +2,8 @@
 AlibabaStudio/settings.py
 
 # files ignore
-uploads/files_on_wall/*.*
-uploads/profile_photoes/*.*
+/files_on_wall/*
+/profile_photoes/*
 
 # idea ignore
 .idea

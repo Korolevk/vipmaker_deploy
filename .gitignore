@@ -2,7 +2,7 @@
 AlibabaStudio/settings.py
 
 # files ignore
-uploads/files_on_wall/*
+uploads/files_on_wall/*.*
 
 # idea ignore
 .idea

@@ -2,10 +2,7 @@
 AlibabaStudio/settings.py
 
 # files ignore
-*.gif
-*.png
-*.jpg
-/profile_photoes/*
+uploads/profile_photoes/*.*
 
 # idea ignore
 .idea

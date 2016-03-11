@@ -2,8 +2,7 @@
 AlibabaStudio/settings.py
 
 # files ignore
-uploads/files_on_wall/example_fon.jpg
-uploads/profile_photoes/example_profile_photo.png
+
 
 # idea ignore
 .idea

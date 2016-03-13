@@ -15,6 +15,13 @@ from django.db.models import Q
 def home(request):
     return HttpResponse('<h1>Home, sweet home</h1>')
 
+def about(request):
+    args = {}
+    args.update(csrf(request))
+    args['my_login'] = auth.get_user(request).username
+    args['posters'] = WallPoster.objects.filter(username='vipmaker')[0:3]
+    return render(request, 'alibaba/about.html', args)
+
 
 def settings(request):
     try:

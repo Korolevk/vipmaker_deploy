@@ -79,7 +79,7 @@
                         {% elif poster.username == my_login %}
                             <td><p class="delete_on_wall"><a href="/poster/delete/{{ poster.id }}/{{ user.username }}/">✕</a></p></td>
                         {% else %}
-                            <td><p class="delete_on_wall"><i class="del_none" style="padding: 0px 16px;"></i></p></td>
+                            <td><p class="delete_on_wall"><i class="del_none" style="padding: 0px 0px;"></i></p></td>
                         {% endif %}
                     </tr>
                     <tr>
@@ -101,11 +101,6 @@
                         <td colspan="4"><p class="like"><a href="/poster/add_like/{{ poster.id }}/{{ user.username }}/"><img src="{% static 'alibaba/images/icon.png' %}" width="35" alt="Мне нравится">{{ poster.likes }}</a></p></td>
                     </tr>
                 </table>
-{#                <p class="name_on_wall">{{ poster.name_of_user }}</p>#}
-{#                <p class="date_on_wall">{{ poster.date_of_poster_add }}</p>#}
-{#                <p class="delete_on_wall"><a href="#">✕</a></p>#}
-{#                <p class="text_on_wall">{{ poster.text }}</p>#}
-{#                <p class="like"><a href="/poster/{{ user_id }}_{{ poster.id }}/add_like/"><img src="{% static 'alibaba/images/icon.png' %}" width="35" alt="Мне нравится">{{ poster.likes }}</a></p>#}
             </td>
         </tr>
         {% endfor %}

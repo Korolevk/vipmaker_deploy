@@ -4,7 +4,6 @@ AlibabaStudio/settings.py
 # files ignore
 uploads/files_on_wall/*
 uploads/profile_photoes/*
-
 !addPhoto.png
 !fon.jpg
 

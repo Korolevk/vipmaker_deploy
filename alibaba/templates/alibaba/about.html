@@ -1,0 +1,75 @@
+{% extends 'alibaba/base_user.html' %}
+{% load static %}
+{% block title %}
+O Vipmaker
+{% endblock %}
+
+{% block body %}
+{#<div class="fon_about" style="background: url('') no-repeat 100% 45%;background-size: cover;"></div>#}
+<div class="fon_about" style="background: url({% static 'alibaba/images/photo-1456428199391-a3b1cb5e93ab.jpg' %}) no-repeat 100% 45%;background-size: cover;"></div>
+    <table class="forma_about" align="center" style="margin-top: -335px;">
+        <tr>
+            <td>
+                <h1>О нас</h1>
+                <p>Подробнее о закрытом сообществе разработчиков Vipmaker <span>gold</span></p>
+                <a href="http://vk.com" target="_blank" class="social social_vk"></a>
+                <a href="http://fb.com" target="_blank" class="social social_fb"></a>
+                <a href="http://twitter.com" target="_blank" class="social social_tw"></a>
+                <a href="http://youtube.com" target="_blank" class="social social_you_tube"></a>
+                <a href="http://instagram.com" target="_blank" class="social social_inst"></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h1 class="second_par">Тут все лучшие разработчики ПО в России и СНГ</h1>
+                <p class="second_par_p">Сообщество программистов, в котором наши коллеги смогут общаться<br>с сообществом Vipmaker, делиться материалами,<br>сообщать о достижениях.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h1 class="second_par second_par_2">Краткие сведения о Vipmaker <span>gold</span></h1>
+                <p class="second_par_p">
+                    Зарегистрироваться на сайте можно только имея специальный секретный ключ разработчика.<br>
+                    Если вы профессионал, и хотите стать членом нашей команды разработчиков,<br>то можете запросить доступ в группе ВКонтакте.
+                    Мы всегда рады видеть<br>в нашем сообществе новых, талантливых единомышленников!
+                </p>
+                <h1 class="second_par second_par_2">Скриншоты сайта и основная информация</h1>
+
+                <p class="second_par_p" style="margin-top: 15px;">Профиль пользователя</p>
+                <ul>
+                    <li>Каждый член команды делится своим опытом и чем-нибудь новым тут.</li>
+                    <li>Донести до единомышленников какую-либо информацию так же можно здесь.</li>
+                    <li>Следить за новостями коллег в разделе "Новости".</li>
+                </ul>
+                    <img src="{% static 'alibaba/images/iam.png' %}" alt="" width="750"><br>
+
+                <p class="second_par_p" style="margin-top: 80px;">Настройки профиля</p>
+                <ul>
+                    <li>Страницу можно настроить полностью на свой вкус.</li>
+                    <li>Прикрепляйте любые изображения к посту.</li>
+                    <li>Следите за своими коллегами или друзьями.</li>
+                </ul>
+                    <img src="{% static 'alibaba/images/search_posters.png' %}" alt="" width="750"><br>
+
+                <p class="second_par_p" style="margin-top: 80px;">Страница поиска</p>
+                <ul>
+                    <li>Поиск, членов нашего сообщества так же есть.</li>
+                    <li>Можно искать конкретные, интересные записи.</li>
+                    <li>Ставить лайки на понравившиеся записи.</li>
+                </ul>
+                <img src="{% static 'alibaba/images/search_people.png' %}" alt="" width="750">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h1 class="second_par">Большое спасибо за внимание!</h1>
+                <p class="second_par_p">Следите за нами:</p>
+                <a href="http://vk.com" target="_blank" class="social social_vk"></a>
+                <a href="http://fb.com" target="_blank" class="social social_fb"></a>
+                <a href="http://twitter.com" target="_blank" class="social social_tw"></a>
+                <a href="http://youtube.com" target="_blank" class="social social_you_tube"></a>
+                <a href="http://instagram.com" target="_blank" class="social social_inst"></a>
+            </td>
+        </tr>
+</table>
+{% endblock %}

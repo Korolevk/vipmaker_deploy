@@ -4,13 +4,19 @@
 {% endblock %}
 
 {% block body %}
-    <table class="forma" align="center" style="margin-top: 100px;">
-        <tr>
+    <table class="forma" align="center" style="margin-top: 35px;">
+    <tr>
             <td>
+                <p class="welcome_text" ><a href="{% url 'about' %}">Здесь</a> можете получить персональный ключ доступа</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
                 <form class="forma" action="auth/singup/" method="post">
                     {% csrf_token %}
                     <input class="_input" type="text" name="username" placeholder="Логин" maxlength="30"><br />
                     <input class="_input" type="text" name="first_name" placeholder="Имя и фамилия" maxlength="100"><br />
+                    <input class="_input" style="background-color: rgba(255, 161, 135, 0.4);border: 1px solid darkgrey;" type="text" name="key" placeholder="Персональный ключ" maxlength="100"><br />
                     <input class="_input" type="password" name="password" placeholder="Пароль" maxlength="30"><br />
                     <input class="_input" type="password" name="password2" placeholder="Повторите пароль" maxlength="30"><br />
                     <input  class="main_button" type="submit" name="submit" value="Зарегистрироваться">

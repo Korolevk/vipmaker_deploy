@@ -4,6 +4,7 @@ from alibaba.views import home
 
 urlpatterns = [
     url(r'^home/', 'alibaba.views.home', name='home'),
+    url(r'^about/', 'alibaba.views.about', name='about'),
     url(r'^user/(?P<login>\w+)/', 'loginsys.views.user', name="user"),
     url(r'^news/', 'alibaba.views.news', name="news"),
     url(r'^add_follow/(?P<login>\w+)/', 'alibaba.views.follow_button', name="follow_button"),

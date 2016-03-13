@@ -1,9 +1,14 @@
 {% extends 'alibaba/base_user.html' %}
 
 {% block body %}
-    <table class="forma" align="center" style="margin-top: 100px;">
+    <table class="forma" align="center" style="margin-top: 65px;">
         <tr>
             <td>
+                <p class="welcome_text" >Добро пожаловать в самую крутую команду страны <a href="{% url 'about' %}">подробнее...</a></p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
 {#                <form action="/login/" method="post">#}
 {#                    <input type="email" name="email" placeholder="Email"><br />#}
 {#                    <input type="password" name="pass" placeholder="Password"><br />#}

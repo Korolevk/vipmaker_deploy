@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'alibaba/images/ico.png' %}" type="image/x-icon">
 </head>
 <style>
 {#  курсор для всех р и h1 #}
@@ -27,6 +28,14 @@
         background-color: #272727;
     }
 {#  --------------  #}
+
+    @-moz-document url-prefix()
+    {
+        .textarea{
+            width: 594px;
+            height: 110px;
+        }
+    }
 
 {#  Шапка сайта  #}
     header{
@@ -328,7 +337,6 @@
     .td_wall td{
         vertical-align: top;
     }
-
 
     .textarea{
         resize: none;

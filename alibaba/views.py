@@ -232,6 +232,7 @@ def change_name(request):
             users_follow.update(follow_first_name=name)
             users_followers = Follow.objects.filter(followers_username=auth.get_user(request).username)
             users_followers.update(followers_first_name=name)
+
             args['error'] = 'Имя изменено!'
         else:
             args['error'] = 'Неверный пароль'

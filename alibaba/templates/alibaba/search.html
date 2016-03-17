@@ -107,7 +107,7 @@
                                         {% if photo_of_users.username_photo == my_login%}
                                             <a href="#" class="follow_button_gray" >Это вы</a>
                                         {% elif photo_of_users.username_photo in i_follow_list %}
-                                            <a href="/add_follow/{{ photo_of_users.username_photo  }}/?from=search&query_search={{ query_search }}&select_search={{ select_search }}}" class="follow_button_false" >Отписаться</a>
+                                            <a href="/add_follow/{{ photo_of_users.username_photo  }}/?from=search&query_search={{ query_search }}&select_search={{ select_search }}" class="follow_button_false" >Отписаться</a>
                                         {% elif photo_of_users.username_photo not in i_follow_list %}
                                             <a href="/add_follow/{{ photo_of_users.username_photo  }}/?from=search&query_search={{ query_search }}&select_search={{ select_search }}" class="follow_button" >Подписаться</a>
                                         {% endif %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from alibaba.models import WallPoster, Like, Photo, Cover, Follow, MyFollowers
+from alibaba.models import WallPoster, Like, Photo, Cover, Follow, MyFollowers, SecretKey
 
 # class UserAdmin(admin.ModelAdmin):
 #     fields = []
@@ -7,4 +7,4 @@ from alibaba.models import WallPoster, Like, Photo, Cover, Follow, MyFollowers
 # class WallPosterAdmin(admin.ModelAdmin):
 #     fields = []
 
-admin.site.register([WallPoster, Like, Photo, Cover, Follow, MyFollowers])
+admin.site.register([WallPoster, Like, Photo, Cover, Follow, MyFollowers, SecretKey])

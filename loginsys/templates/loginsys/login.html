@@ -1,5 +1,9 @@
 {% extends 'alibaba/base_user.html' %}
 
+{% block title %}
+Vipmaker
+{% endblock %}
+
 {% block body %}
     <table class="forma" align="center" style="margin-top: 65px;">
         <tr>
@@ -18,7 +22,8 @@
                     {% csrf_token %}
                     <input class="_input" type="text" name="username" placeholder="Имя пользователя" value="{{ username }}"><br />
                     <input class="_input" type="password" name="password" placeholder="Пароль" value="{{ password }}"><br />
-                    <input class="main_button" type="submit" name="submit" value="Войти">
+                    <input class="main_button" type="submit" name="submit" value="Войти"><br>
+                    <a href="/auth/forgot_pass/" class="forgot_password_link">Забыли пароль?</a>
                     {% if login_error %}
                         <p class="error">{{ login_error }}</p>
                     {% endif %}

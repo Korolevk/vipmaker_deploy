@@ -5,10 +5,12 @@ from django.http import Http404
 from django.shortcuts import render, redirect, render_to_response
 from django.template.context_processors import csrf
 from alibaba.forms import PosterForm
-from alibaba.models import WallPoster, Photo, Cover, Follow, MyFollowers
+from alibaba.models import WallPoster, Photo, Cover, Follow, MyFollowers, SecretKey
 from django.contrib import auth
 from django.contrib.auth.models import User
 from alibaba.other_functions_by_kirill import end_of_name
+from django.core.mail import send_mail
+from AlibabaStudio.settings import EMAIL_HOST_USER
 
 def signup(request):
     args = {}
@@ -18,9 +20,15 @@ def signup(request):
         return redirect('/user/{userlogin}/'.format(userlogin=auth.get_user(request).username))
     if request.POST:
         args['username'] = request.POST.get('username', '')
+        args['email'] = request.POST.get('email', '')
         args['first_name'] = request.POST.get('first_name', '')
         args['password'] = request.POST.get('password', '')
         args['password2'] = request.POST.get('password2', '')
+        args['key'] = request.POST.get('key','')
+
+        if SecretKey.objects.filter(secret_key=args['key']).count() == 0:
+            # args['signup_error'] = 'Нет пользователя с таким персональным ключом!'
+            return redirect('/auth/signup/?error=NOT_ACCESS')
 
         if args['username'] == '' or args['first_name'] == '' or args['password'] == '' or args['password2'] == '':
             # args['signup_error'] = 'Ни одно поле не должно быть пустым!'
@@ -34,7 +42,11 @@ def signup(request):
             # args['signup_error'] = 'Пользователь c таким логином уже есть!'
             return redirect('/auth/signup/?error=user_in_db')
 
-        user = User.objects.create_user(username=args['username'],first_name=args['first_name'],password=args['password'],)
+        if User.objects.filter(email=args['email']).count() > 0:
+            # args['signup_error'] = 'Пользователь c таким email уже есть!'
+            return redirect('/auth/signup/?error=email_in_db')
+
+        user = User.objects.create_user(username=args['username'], first_name=args['first_name'], password=args['password'], email=args['email'])
         user_object = User.objects.get(username=args['username'])
         profile_photo = Photo.objects.create(profile=user_object, username_photo=args['username'], profile_photo='/static/alibaba/images/addPhoto.png', first_name_photo=user_object.first_name)
         profile_cover = Cover.objects.create(profile=user_object, username_cover=args['username'], profile_cover='/static/alibaba/images/fon.jpg', first_name_cover=user_object.first_name)
@@ -47,8 +59,14 @@ def signup(request):
         if error == 'empty_input':
             args['signup_error'] = 'Заполните все поля!'
             return render_to_response('loginsys/signup.html', args)
+        elif error == 'NOT_ACCESS':
+            args['signup_error'] = 'Нет пользователя с таким персональным ключом!'
+            return render_to_response('loginsys/signup.html', args)
         elif error == 'passwords_not':
             args['signup_error'] = 'Пароли не совпадают!'
+            return render_to_response('loginsys/signup.html', args)
+        elif error == 'email_in_db':
+            args['signup_error'] = 'Пользователь с таким email уже есть!'
             return render_to_response('loginsys/signup.html', args)
         elif error == 'user_in_db':
             args['signup_error'] = 'Такой пользователь уже есть!'
@@ -145,4 +163,30 @@ def user(request, login):
 
 def logout(request):
     auth.logout(request)
+    return redirect('/')
+
+
+def forgot_pass(request):
+    if auth.get_user(request).username:
+        return redirect('/user/{userlogin}/'.format(userlogin=auth.get_user(request).username))
+    if request.GET:
+        error = request.GET.get('error','')
+        return render(request, 'loginsys/forgot_pass.html', {'error':error})
+    return render(request, 'loginsys/forgot_pass.html')
+
+def success_forgot(request):
+    if auth.get_user(request).username:
+        return redirect('/user/{userlogin}/'.format(userlogin=auth.get_user(request).username))
+    return render(request, 'loginsys/success_forgot.html')
+
+def send_password_on_mail(request):
+    if auth.get_user(request).username:
+        return redirect('/user/{userlogin}/'.format(userlogin=auth.get_user(request).username))
+    if request.POST:
+        email = request.POST.get('email', '')
+        if User.objects.filter(email=email).count() != 0:
+            send_mail('Восстановление пароля Vipmaker', 'Запрос на воостановление', EMAIL_HOST_USER, [email])
+        else:
+            return redirect('/auth/forgot_pass/?error=no_email')
+        return redirect('/auth/success_forgot/')
     return redirect('/')

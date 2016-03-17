@@ -1,0 +1,31 @@
+{% extends 'alibaba/base_user.html' %}
+{% block title %}
+Восстановление доступа к странице
+{% endblock %}
+
+{% block body %}
+    <table class="forma" align="center" style="margin-top: 65px;text-align: center;">
+        <tr>
+            <td>
+                <p class="welcome_text" >Восстановление доступа к странице</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="welcome_text" style="font-size: 16px;color: #A2A2A2;padding: 0;">Введите ваш email, который вы указывали при регистрации.</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <form class="forma" action="/auth/send_password_on_mail/" method="post">
+                    {% csrf_token %}
+                    <input class="_input" type="email" name="email" placeholder="Email пользователя"><br />
+                    <input class="main_button" type="submit" name="submit" value="Восстановить"><br>
+                    {% if error %}
+                        <p class="error">Такого email не существует.</p>
+                    {% endif %}
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

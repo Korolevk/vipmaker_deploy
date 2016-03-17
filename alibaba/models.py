@@ -3,6 +3,14 @@ from django.db import models
 from datetime import datetime, timezone
 from django.contrib.auth.models import User
 
+class SecretKey(models.Model):
+    class Meta():
+        verbose_name = "Секретный ключ"
+        verbose_name_plural = "Секретные ключи"
+    secret_key = models.CharField(max_length=100, default='')
+
+    def __str__(self):
+        return self.secret_key
 
 class WallPoster(models.Model):
     class Meta():
@@ -70,7 +78,6 @@ class MyFollowers(models.Model):
         verbose_name_plural = 'Подписчики'
         ordering = ['follower_username']
     profile = models.ForeignKey(User)
-    # followers_count = models.IntegerField(default=0)
     follower_username = models.CharField(max_length=100, default='')
     follower_first_name = models.CharField(max_length=100, default='')
     follower_photo = models.ImageField()

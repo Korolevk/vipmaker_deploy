@@ -58,6 +58,13 @@
         font-size: 22px;
         color: #272727;
     }
+    .forgot_password_link{
+        top: 25px;
+        font-weight: normal;
+        position: relative;
+        font-size: 14px;
+        color: #4E4E4E;
+    }
 
 {#  Зеленая кнопка  #}
     .main_button{
@@ -530,7 +537,7 @@
                                 <td><a class="menu_a" href="{% url 'settings' %}">Настройки</a></td>
                                 <td><a style="margin: 0px 40px 0px 0px;" class="menu_a" href="/auth/logout/">Выйти</a></td>
                             {% else %}
-                                <td><a style="margin: 0px 40px 0px 0px;" class="menu_a" href="/auth/login/">Войти</a></td>
+                                <td><a style="margin: 0px 40px 0px 0px;" class="menu_a" href="/">Войти</a></td>
                             {% endif %}
                         </tr>
                     </table>

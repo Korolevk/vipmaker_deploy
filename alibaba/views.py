@@ -19,7 +19,7 @@ def about(request):
     args = {}
     args.update(csrf(request))
     args['my_login'] = auth.get_user(request).username
-    args['posters'] = WallPoster.objects.filter(username='vipmaker')[0:3]
+    # args['posters'] = WallPoster.objects.filter(username='vipmaker')[0:3]
     return render(request, 'alibaba/about.html', args)
 
 
@@ -457,16 +457,16 @@ def follow_button(request, login):
         follow_object.delete()
 
         if request.GET:
-            if request.GET.get('from','') == 'my_followers':
+            if request.GET.get('from', '') == 'my_followers':
                 who_page = request.GET.get('who_page')
                 return redirect('/my_followers_page/{u}/'.format(u=who_page))
-            elif request.GET.get('from','') == 'follow_page':
+            elif request.GET.get('from', '') == 'follow_page':
                 who_page = request.GET.get('who_page')
                 return redirect('/follow_page/{u}/'.format(u=who_page))
-            elif request.GET.get('from','') == 'search':
-                query_search = request.GET.get('query_search','')
-                select_search = request.GET.get('select_search','')
-                redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search,s=select_search)
+            elif request.GET.get('from', '') == 'search':
+                query_search = request.GET.get('query_search', '')
+                select_search = request.GET.get('select_search', '')
+                redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search, s=select_search)
                 return redirect(redirect_str)
             else:
                 return redirect('/user/{u}/'.format(u=login))
@@ -484,16 +484,16 @@ def follow_button(request, login):
     )
 
     if request.GET:
-        if request.GET.get('from','') == 'my_followers':
+        if request.GET.get('from', '') == 'my_followers':
             who_page = request.GET.get('who_page')
             return redirect('/my_followers_page/{u}/'.format(u=who_page))
-        elif request.GET.get('from','') == 'follow_page':
+        elif request.GET.get('from', '') == 'follow_page':
             who_page = request.GET.get('who_page')
             return redirect('/follow_page/{u}/'.format(u=who_page))
-        elif request.GET.get('from','') == 'search':
-                query_search = request.GET.get('query_search','')
-                select_search = request.GET.get('select_search','')
-                redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search,s=select_search)
+        elif request.GET.get('from', '') == 'search':
+                query_search = request.GET.get('query_search', '')
+                select_search = request.GET.get('select_search', '')
+                redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search, s=select_search)
                 return redirect(redirect_str)
         else:
             return redirect('/user/{u}/'.format(u=login))

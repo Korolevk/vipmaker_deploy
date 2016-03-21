@@ -13,7 +13,7 @@ class PosterForm(ModelForm):
                                             'class': 'textarea',
                                             'name': 'article_textarea',
                                             'placeholder': 'Что у вас нового?',
-                                            'cols': '58',
+                                            'cols': '53',
                                             'rows': '5',
                                          }),
             'poster_file': forms.FileInput(attrs={

@@ -121,10 +121,21 @@
         {% endfor %}
     {% else %}
         <tr>
-            <td><p class="query_error">{{ error }}</p></td>
+            <td><p class="query_error">
+                {% if error %}
+                    {{ error }}
+                {% endif %}
+                  Введите поисковой запрос!
+            </p></td>
         </tr>
     {% endif %}
-
+{% endif %}
+{% if select_search != 'По людям' %}
+        <tr>
+            <td><p class="query_error">
+                  Введите поисковой запрос!
+            </p></td>
+        </tr>
 {% endif %}
 </table>
 {% endblock %}

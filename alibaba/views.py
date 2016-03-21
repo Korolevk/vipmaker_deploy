@@ -105,6 +105,9 @@ def settings(request):
             cover = request.GET.get('cover', '')
             name = request.GET.get('name', '')
             password = request.GET.get('password','')
+            login = request.GET.get('login','')
+            base = request.GET.get('base', '')
+
             if photo == 'success_photo':
                 args['photo_error'] = 'Фотография изменена'
             elif photo == 'default_photo':
@@ -127,6 +130,20 @@ def settings(request):
                 args['error'] = 'Пароли не совпадают!'
             elif password == 'error_old_pass':
                 args['error'] = 'Неправильный старый пароль!'
+
+            elif login == 'empty':
+                args['login_settings_error'] = 'Ни одного поля не оставьте пустым!'
+            elif login == 'good':
+                args['login_settings_error'] = 'Логин изменен!'
+            elif login == 'invalid_pass':
+                args['login_settings_error'] = 'Неверный пароль'
+            elif login == 'login_in_db':
+                args['login_settings_error'] = 'Такой логин уже у другого пользователя'
+
+            elif base == 'email_good':
+                args['base_settings_error'] = 'Email изменен!'
+            elif login == 'invalid_pass':
+                args['base_settings_error'] = 'Неверный пароль'
 
             return render(request, 'alibaba/settings.html', args)
 
@@ -332,9 +349,14 @@ def change_username(request):
         username = request.POST.get('username', '')
         password = request.POST.get('pass', '')
 
+        if username == '' or password == '':
+            args['login_settings_error'] = 'Ни одного поля не оставьте пустым!'
+            return redirect('/settings/?login=empty')
+
         if User.objects.filter(username=username).count() > 0:
             args['login_settings_error'] = 'Такой логин уже у другого пользователя'
-            return render(request, 'alibaba/settings.html', args)
+            return redirect('/settings/?login=login_in_db')
+            # return render(request, 'alibaba/settings.html', args)
 
         if args['user'].check_password(password):
 
@@ -363,10 +385,12 @@ def change_username(request):
                 args['user'].save()
                 args['login_settings_error'] = 'Логин изменен!'
                 args['my_login'] = username
-                return render(request, 'alibaba/settings.html', args)
+                # return render(request, 'alibaba/settings.html', args)
+                return redirect('/settings/?login=good')
         else:
                 args['login_settings_error'] = 'Неверный пароль'
-                return render(request, 'alibaba/settings.html', args)
+                # return render(request, 'alibaba/settings.html', args)
+                return redirect('/settings/?login=invalid_pass')
     else:
         return render(request, 'alibaba/settings.html', {'login_settings_error':'error'})
 
@@ -396,10 +420,12 @@ def base_settings(request):
         if args['user'].check_password(password):
             args['user'].email = email
             args['user'].save()
-            args['base_settings_error'] = 'Email изменен!'
+            # args['base_settings_error'] = 'Email изменен!'
+            return redirect('/settings/?base=email_good')
         else:
-            args['base_settings_error'] = 'Неверный пароль'
-        return render(request, 'alibaba/settings.html', args)
+            # args['base_settings_error'] = 'Неверный пароль'
+            return redirect('/settings/?base=pass_invalid')
+        # return render(request, 'alibaba/settings.html', args)
     else:
         return render(request, 'alibaba/settings.html', {'base_settings_error':'error'})
 
@@ -415,6 +441,7 @@ def news(request):
     # args['a'] = Follow.objects.filter(profile=args['user']).values_list('follow_username', flat=True)
 
     args['posters'] = WallPoster.objects.filter(username__in=args['i_follow'])
+    args['posters_count'] = WallPoster.objects.filter(username__in=args['i_follow']).count()
     return render(request, 'alibaba/news.html', args)
 
 # --- Search Page ---

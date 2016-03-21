@@ -108,7 +108,7 @@
                     <input class="_input" type="password" name="pass" placeholder="Пароль"><br />
                     <input type="submit" name="submit" value="Изменить" class="main_button">
                 </form>
-                {% if login_settings_error == 'Неверный пароль' or login_settings_error == 'Такой логин уже у другого пользователя' %}
+                {% if login_settings_error == 'Неверный пароль' or login_settings_error == 'Такой логин уже у другого пользователя' or login_settings_error == 'Ни одного поля не оставьте пустым!' %}
                     <p class="error">{{ login_settings_error }}</p>
                 {% elif login_settings_error == 'Логин изменен!'%}
                     <p class="good">Логин изменен!</p>

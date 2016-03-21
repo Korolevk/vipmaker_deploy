@@ -103,6 +103,8 @@ def settings(request):
         if request.GET:
             photo = request.GET.get('photo','')
             cover = request.GET.get('cover', '')
+            name = request.GET.get('name', '')
+            password = request.GET.get('password','')
             if photo == 'success_photo':
                 args['photo_error'] = 'Фотография изменена'
             elif photo == 'default_photo':
@@ -113,6 +115,19 @@ def settings(request):
                 args['cover_error'] = 'Это обложка по умолчанию!'
             elif cover == 'error_unknow_cover':
                 args['cover_error'] = 'Неизвестная ошибка'
+
+            elif name == 'name_changed':
+                args['error'] = 'Имя изменено!'
+            elif name == 'name_password_error':
+                args['error'] = 'Неверный пароль'
+
+            elif password == 'password_changed':
+                args['error'] = 'Пароль успешно изменен!'
+            elif password == 'password_not_equal':
+                args['error'] = 'Пароли не совпадают!'
+            elif password == 'error_old_pass':
+                args['error'] = 'Неправильный старый пароль!'
+
             return render(request, 'alibaba/settings.html', args)
 
     except ObjectDoesNotExist:
@@ -199,46 +214,51 @@ def change_cover(request):
 
 
 def change_name(request):
-    args = {}
-    args.update(csrf(request))
-
-    # Передается фото и обложка, отображающаяся в настройках
     try:
-        args['img'] = Photo.objects.get(username_photo=auth.get_user(request).username)
-        args['img_url'] = args['img'].profile_photo.url
-    except ObjectDoesNotExist:
-        args['img_url'] = '/static/alibaba/images/addPhoto.png'
-    try:
-        args['cover'] = Cover.objects.get(username_cover=auth.get_user(request).username)
-        args['cover_url'] = args['cover'].profile_cover.url
-    except ObjectDoesNotExist:
-        args['cover_url'] = '/static/alibaba/images/fon.jpg'
-
-    if request.POST:
+        args = {}
+        args.update(csrf(request))
         args['my_login'] = auth.get_user(request).username
         args['user'] = User.objects.get(username=auth.get_user(request).username)
-        args['error'] = None
-        name = request.POST.get('new_name', '')
-        password = request.POST.get('pass', '')
-        if args['user'].check_password(password):
-            args['user'].first_name = name
-            args['user'].save()
-            posters = WallPoster.objects.filter(username=auth.get_user(request).username)
-            posters.update(name_of_user=name)
-            users_in_query = Photo.objects.filter(username_photo=auth.get_user(request).username)
-            users_in_query.update(first_name_photo=name)
 
-            users_follow = Follow.objects.filter(follow_username=auth.get_user(request).username)
-            users_follow.update(follow_first_name=name)
-            users_followers = Follow.objects.filter(followers_username=auth.get_user(request).username)
-            users_followers.update(followers_first_name=name)
+        # Передается фото и обложка, отображающаяся в настройках
+        try:
+            args['img'] = Photo.objects.get(username_photo=auth.get_user(request).username)
+            args['img_url'] = args['img'].profile_photo.url
+        except ObjectDoesNotExist:
+            args['img_url'] = '/static/alibaba/images/addPhoto.png'
+        try:
+            args['cover'] = Cover.objects.get(username_cover=auth.get_user(request).username)
+            args['cover_url'] = args['cover'].profile_cover.url
+        except ObjectDoesNotExist:
+            args['cover_url'] = '/static/alibaba/images/fon.jpg'
 
-            args['error'] = 'Имя изменено!'
-        else:
-            args['error'] = 'Неверный пароль'
+        if request.POST:
+            args['my_login'] = auth.get_user(request).username
+            args['user'] = User.objects.get(username=auth.get_user(request).username)
+            args['error'] = None
+            name = request.POST.get('new_name', '')
+            password = request.POST.get('pass', '')
+            if args['user'].check_password(password):
+                args['user'].first_name = name
+                args['user'].save()
+                posters = WallPoster.objects.filter(username=auth.get_user(request).username)
+                posters.update(name_of_user=name)
+                users_in_query = Photo.objects.filter(username_photo=auth.get_user(request).username)
+                users_in_query.update(first_name_photo=name)
+
+                users_follow = Follow.objects.filter(follow_username=auth.get_user(request).username)
+                users_follow.update(follow_first_name=name)
+                users_followers = Follow.objects.filter(followers_username=auth.get_user(request).username)
+                users_followers.update(followers_first_name=name)
+
+                args['error'] = 'Имя изменено!'
+                return redirect('/settings/?name=name_changed')
+            else:
+                args['error'] = 'Неверный пароль'
+                return redirect('/settings/?name=name_password_error')
         return render(request, 'alibaba/settings.html', args)
-    else:
-        return render(request, 'alibaba/settings.html', {'error':'error'})
+    except ObjectDoesNotExist:
+        raise Http404
 
 
 def change_password(request):
@@ -269,12 +289,15 @@ def change_password(request):
                 args['user'].set_password(new_password)
                 args['user'].save()
                 args['error'] = 'Пароль успешно изменен!'
+                # return redirect('/settings/?password=password_changed')
                 return render(request, 'alibaba/anon_user.html', args)
             else:
-                args['error'] = 'Пароли не совпадают!'
+                # args['error'] = 'Пароли не совпадают!'
+                return redirect('/settings/?password=password_not_equal')
         else:
-            args['error'] = 'Неправильный старый пароль!'
-        return render(request, 'alibaba/settings.html', args)
+            # args['error'] = 'Неправильный старый пароль!'
+            return redirect('/settings/?password=error_old_pass')
+        # return render(request, 'alibaba/settings.html', args)
     else:
         return render(request, 'alibaba/settings.html', {'error':'error'})
 
@@ -561,6 +584,7 @@ def add_poster(request, login):
             except ObjectDoesNotExist:
                 forma.poster_photo = '/static/alibaba/images/addPhoto.png'
             forma.save()
+            return redirect('/user/{}/'.format(login))
     return redirect('/user/{}/'.format(login))
 
 

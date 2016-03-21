@@ -52,11 +52,11 @@
                     <input type="submit" name="submit" value="Изменить" class="main_button"><br />
                     <input type="submit" name="del" value="Удалить обложку" class="main_button">
                 </form>
-                {% if file_error == 'Неверный пароль' %}
-                    <p class="error">{{ error }}</p>
-                {% elif file_error == 'Имя изменено!'%}
-                    <p class="good">Имя изменено!</p>
-                {% endif %}
+{#                {% if file_error == 'Неверный пароль' %}#}
+{#                    <p class="error">{{ error }}</p>#}
+{#                {% elif file_error == 'Имя изменено!'%}#}
+{#                    <p class="good">Имя изменено!</p>#}
+{#                {% endif %}#}
             </td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@
                     <input class="_input" type="password" name="pass" placeholder="Пароль"><br />
                     <input type="submit" name="submit" value="Изменить" class="main_button">
                 </form>
-                {% if error == 'Неверный пароль' %}
+                {% if error == 'Неверный пароль' or error == 'Ни одного поля не оставьте пустым!' %}
                     <p class="error">{{ error }}</p>
                 {% elif error == 'Имя изменено!'%}
                     <p class="good">Имя изменено!</p>
@@ -89,7 +89,7 @@
                     <input class="_input" type="password" name="new_pass2" placeholder="Повторите пароль"><br />
                     <input type="submit" name="submit" value="Изменить" class="main_button">
                 </form>
-                {% if error == 'Пароли не совпадают!' or error == 'Неправильный старый пароль!' %}
+                {% if error == 'Пароли не совпадают!' or error == 'Неправильный старый пароль!' or error == 'Ни одного поля не оставьте пустым' %}
                     <p class="error">{{ error }}</p>
                 {% elif error == 'Пароль успешно изменен!'%}
                     <p class="good">Пароль успешно изменен!</p>
@@ -127,7 +127,7 @@
                     <input class="_input" type="password" name="pass" placeholder="Пароль"><br />
                     <input type="submit" name="submit" value="Изменить" class="main_button">
                 </form>
-                {% if base_settings_error == 'Неверный пароль' %}
+                {% if base_settings_error == 'Неверный пароль' or base_settings_error == 'Ни одного поля не оставьте пустым!' %}
                     <p class="error">{{ base_settings_error }}</p>
                 {% elif base_settings_error == 'Email изменен!'%}
                     <p class="good">Email изменен!</p>

@@ -119,11 +119,15 @@ def settings(request):
             elif cover == 'error_unknow_cover':
                 args['cover_error'] = 'Неизвестная ошибка'
 
+            elif name == 'empty':
+                args['error'] = 'Ни одного поля не оставьте пустым!'
             elif name == 'name_changed':
                 args['error'] = 'Имя изменено!'
             elif name == 'name_password_error':
                 args['error'] = 'Неверный пароль'
 
+            elif password == 'empty':
+                args['error'] = 'Ни одного поля не оставьте пустым'
             elif password == 'password_changed':
                 args['error'] = 'Пароль успешно изменен!'
             elif password == 'password_not_equal':
@@ -140,6 +144,8 @@ def settings(request):
             elif login == 'login_in_db':
                 args['login_settings_error'] = 'Такой логин уже у другого пользователя'
 
+            elif base == 'empty':
+                args['base_settings_error'] = 'Ни одного поля не оставьте пустым!'
             elif base == 'email_good':
                 args['base_settings_error'] = 'Email изменен!'
             elif login == 'invalid_pass':
@@ -198,7 +204,7 @@ def change_cover(request):
                     forma.profile = user
                     forma.first_name_cover = user.first_name
                     forma.save()
-                    args['file_error'] = 'обложка изменена!'
+                    # args['file_error'] = 'обложка изменена!'
                     return redirect('/settings/?cover=success_cover')
 
                 args['cover'] = Cover.objects.get(username_cover=args['user'])
@@ -214,7 +220,7 @@ def change_cover(request):
                     forma.profile = user
                     forma.first_name_cover = user.first_name
                     forma.save()
-                    args['file_error'] = 'обложка изменена!'
+                    # args['file_error'] = 'обложка изменена!'
                     return redirect('/settings/?cover=success_cover')
                 else:
                     forma = args['cover_update_form'].save(commit=False)
@@ -223,7 +229,7 @@ def change_cover(request):
                     forma.profile = user
                     forma.first_name_cover = user.first_name
                     forma.save()
-                    args['file_error'] = 'обложка изменена!'
+                    # args['file_error'] = 'обложка изменена!'
                     return redirect('/settings/?cover=success_cover')
     except ObjectDoesNotExist:
         raise Http404
@@ -255,6 +261,11 @@ def change_name(request):
             args['error'] = None
             name = request.POST.get('new_name', '')
             password = request.POST.get('pass', '')
+
+            if name == '' or password == '':
+                args['login_settings_error'] = 'Ни одного поля не оставьте пустым!'
+                return redirect('/settings/?name=empty')
+
             if args['user'].check_password(password):
                 args['user'].first_name = name
                 args['user'].save()
@@ -268,10 +279,10 @@ def change_name(request):
                 users_followers = Follow.objects.filter(followers_username=auth.get_user(request).username)
                 users_followers.update(followers_first_name=name)
 
-                args['error'] = 'Имя изменено!'
+                # args['error'] = 'Имя изменено!'
                 return redirect('/settings/?name=name_changed')
             else:
-                args['error'] = 'Неверный пароль'
+                # args['error'] = 'Неверный пароль'
                 return redirect('/settings/?name=name_password_error')
         return render(request, 'alibaba/settings.html', args)
     except ObjectDoesNotExist:
@@ -301,6 +312,11 @@ def change_password(request):
         old_password = request.POST.get('old_pass', '')
         new_password = request.POST.get('new_pass', '')
         new_password_2 = request.POST.get('new_pass2', '')
+
+        if old_password == '' or new_password == '' or new_password_2 == '':
+            args['login_settings_error'] = 'Ни одного поля не оставьте пустым'
+            return redirect('/settings/?password=empty')
+
         if args['user'].check_password(old_password):
             if new_password == new_password_2:
                 args['user'].set_password(new_password)
@@ -417,6 +433,11 @@ def base_settings(request):
         args['base_settings_error'] = None
         email = request.POST.get('email', '')
         password = request.POST.get('pass', '')
+
+        if email == '' or password == '':
+            args['login_settings_error'] = 'Ни одного поля не оставьте пустым!'
+            return redirect('/settings/?base=empty')
+
         if args['user'].check_password(password):
             args['user'].email = email
             args['user'].save()

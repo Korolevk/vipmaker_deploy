@@ -1,7 +1,7 @@
 # settings ignore
 #AlibabaStudio/settings.py
 
-#.idea/workspace.xml
+.idea/workspace.xml
 
 # files ignore
 uploads/files_on_wall/*

@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3fef5cc-3e55-4982-9207-149255caca0c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/AlibabaStudio.iml" afterPath="$PROJECT_DIR$/.idea/AlibabaStudio.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alibaba/views.py" afterPath="$PROJECT_DIR$/alibaba/views.py" />
     </list>
     <ignored path="AlibabaStudio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,41 +54,31 @@
         <entry file="file://$PROJECT_DIR$/alibaba/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="593" column="41" selection-start-line="593" selection-start-column="41" selection-end-line="593" selection-end-column="41" />
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
-                <element signature="e#686#912#0" expanded="false" />
-                <element signature="e#942#7476#0" expanded="false" />
-                <element signature="e#7510#11635#0" expanded="false" />
-                <element signature="e#11668#14123#0" expanded="false" />
-                <element signature="e#14160#16173#0" expanded="false" />
-                <element signature="e#16210#19741#0" expanded="false" />
-                <element signature="e#19776#21393#0" expanded="false" />
-                <element signature="e#21418#22057#0" expanded="false" />
-                <element signature="e#24363#27323#0" expanded="false" />
-                <element signature="e#27411#28028#0" expanded="false" />
-                <element signature="e#28116#28852#0" expanded="false" />
-                <element signature="e#28927#30030#0" expanded="false" />
-                <element signature="e#30086#30358#0" expanded="false" />
-                <element signature="e#30409#32910#0" expanded="false" />
+                <element signature="e#716#942#0" expanded="false" />
+                <element signature="e#972#7506#0" expanded="false" />
+                <element signature="e#7540#11665#0" expanded="false" />
+                <element signature="e#11698#14153#0" expanded="false" />
+                <element signature="e#14190#16203#0" expanded="false" />
+                <element signature="e#16240#19771#0" expanded="false" />
+                <element signature="e#19806#21423#0" expanded="false" />
+                <element signature="e#21448#22087#0" expanded="false" />
+                <element signature="e#24393#27353#0" expanded="false" />
+                <element signature="e#27441#28058#0" expanded="false" />
+                <element signature="e#28146#28882#0" expanded="false" />
+                <element signature="e#28957#30060#0" expanded="false" />
+                <element signature="e#30116#30388#0" expanded="false" />
+                <element signature="e#30439#32940#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.116693676">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="search.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.666667">
+            <state vertical-scroll-proportion="0.76301616">
               <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
               <folding />
             </state>
@@ -150,9 +145,9 @@
         <option value="$PROJECT_DIR$/loginsys/templates/loginsys/login.html" />
         <option value="$PROJECT_DIR$/alibaba/templates/alibaba/news.html" />
         <option value="$PROJECT_DIR$/alibaba/templates/alibaba/settings.html" />
-        <option value="$PROJECT_DIR$/alibaba/views.py" />
         <option value="$PROJECT_DIR$/alibaba/templates/alibaba/search.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/alibaba/views.py" />
       </list>
     </option>
   </component>
@@ -162,9 +157,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1301" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -192,7 +187,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,11 +243,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -491,10 +486,10 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="AlibabaStudio.settings" />
+        <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Python\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -529,16 +524,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16334662" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16792738" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5030257" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59196293" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5908347" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969743" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -706,20 +701,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
           <folding>
-            <element signature="e#686#912#0" expanded="false" />
-            <element signature="e#942#7476#0" expanded="false" />
-            <element signature="e#7510#11635#0" expanded="false" />
-            <element signature="e#11668#14123#0" expanded="false" />
-            <element signature="e#14160#16173#0" expanded="false" />
-            <element signature="e#16210#19741#0" expanded="false" />
-            <element signature="e#19776#21393#0" expanded="false" />
-            <element signature="e#21418#22057#0" expanded="false" />
-            <element signature="e#24363#27323#0" expanded="false" />
-            <element signature="e#27411#28028#0" expanded="false" />
-            <element signature="e#28116#28852#0" expanded="false" />
-            <element signature="e#28927#30030#0" expanded="false" />
-            <element signature="e#30086#30358#0" expanded="false" />
-            <element signature="e#30409#32910#0" expanded="false" />
+            <element signature="e#716#942#0" expanded="false" />
+            <element signature="e#972#7506#0" expanded="false" />
+            <element signature="e#7540#11665#0" expanded="false" />
+            <element signature="e#11698#14153#0" expanded="false" />
+            <element signature="e#14190#16203#0" expanded="false" />
+            <element signature="e#16240#19771#0" expanded="false" />
+            <element signature="e#19806#21423#0" expanded="false" />
+            <element signature="e#21448#22087#0" expanded="false" />
+            <element signature="e#24393#27353#0" expanded="false" />
+            <element signature="e#27441#28058#0" expanded="false" />
+            <element signature="e#28146#28882#0" expanded="false" />
+            <element signature="e#28957#30060#0" expanded="false" />
+            <element signature="e#30116#30388#0" expanded="false" />
+            <element signature="e#30439#32940#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -753,20 +748,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="545" column="33" selection-start-line="545" selection-start-column="33" selection-end-line="545" selection-end-column="33" />
           <folding>
-            <element signature="e#686#912#0" expanded="false" />
-            <element signature="e#942#7476#0" expanded="false" />
-            <element signature="e#7510#11635#0" expanded="false" />
-            <element signature="e#11668#14123#0" expanded="false" />
-            <element signature="e#14160#16173#0" expanded="false" />
-            <element signature="e#16210#19741#0" expanded="false" />
-            <element signature="e#19776#21393#0" expanded="false" />
-            <element signature="e#21418#22057#0" expanded="false" />
-            <element signature="e#24363#27323#0" expanded="false" />
-            <element signature="e#27411#28028#0" expanded="false" />
-            <element signature="e#28116#28852#0" expanded="false" />
-            <element signature="e#28927#30030#0" expanded="false" />
-            <element signature="e#30086#30358#0" expanded="false" />
-            <element signature="e#30409#32910#0" expanded="false" />
+            <element signature="e#716#942#0" expanded="false" />
+            <element signature="e#972#7506#0" expanded="false" />
+            <element signature="e#7540#11665#0" expanded="false" />
+            <element signature="e#11698#14153#0" expanded="false" />
+            <element signature="e#14190#16203#0" expanded="false" />
+            <element signature="e#16240#19771#0" expanded="false" />
+            <element signature="e#19806#21423#0" expanded="false" />
+            <element signature="e#21448#22087#0" expanded="false" />
+            <element signature="e#24393#27353#0" expanded="false" />
+            <element signature="e#27441#28058#0" expanded="false" />
+            <element signature="e#28146#28882#0" expanded="false" />
+            <element signature="e#28957#30060#0" expanded="false" />
+            <element signature="e#30116#30388#0" expanded="false" />
+            <element signature="e#30439#32940#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1026,49 +1021,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11663808">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/alibaba/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="593" column="41" selection-start-line="593" selection-start-column="41" selection-end-line="593" selection-end-column="41" />
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="e#686#912#0" expanded="false" />
-            <element signature="e#942#7476#0" expanded="false" />
-            <element signature="e#7510#11635#0" expanded="false" />
-            <element signature="e#11668#14123#0" expanded="false" />
-            <element signature="e#14160#16173#0" expanded="false" />
-            <element signature="e#16210#19741#0" expanded="false" />
-            <element signature="e#19776#21393#0" expanded="false" />
-            <element signature="e#21418#22057#0" expanded="false" />
-            <element signature="e#24363#27323#0" expanded="false" />
-            <element signature="e#27411#28028#0" expanded="false" />
-            <element signature="e#28116#28852#0" expanded="false" />
-            <element signature="e#28927#30030#0" expanded="false" />
-            <element signature="e#30086#30358#0" expanded="false" />
-            <element signature="e#30409#32910#0" expanded="false" />
+            <element signature="e#716#942#0" expanded="false" />
+            <element signature="e#972#7506#0" expanded="false" />
+            <element signature="e#7540#11665#0" expanded="false" />
+            <element signature="e#11698#14153#0" expanded="false" />
+            <element signature="e#14190#16203#0" expanded="false" />
+            <element signature="e#16240#19771#0" expanded="false" />
+            <element signature="e#19806#21423#0" expanded="false" />
+            <element signature="e#21448#22087#0" expanded="false" />
+            <element signature="e#24393#27353#0" expanded="false" />
+            <element signature="e#27441#28058#0" expanded="false" />
+            <element signature="e#28146#28882#0" expanded="false" />
+            <element signature="e#28957#30060#0" expanded="false" />
+            <element signature="e#30116#30388#0" expanded="false" />
+            <element signature="e#30439#32940#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.666667">
+        <state vertical-scroll-proportion="0.76301616">
           <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.116693676">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

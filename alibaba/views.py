@@ -13,7 +13,7 @@ from django.db.models import Q
 
 
 def home(request):
-    return HttpResponse('<h1>Home, sweet home</h1>')
+    return HttpResponse('<h1>Home, sweet home<br></h1><a href="/">На главную</a>')
 
 def about(request):
     args = {}

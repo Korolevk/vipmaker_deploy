@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0mgys*rp#qgel!@--h4tqxg52lr)9l5n=c7y3j3f)hv*b@rmc#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'vipmakergold.ru']
 
 
 INSTALLED_APPS = (
@@ -124,7 +125,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-try:
-    from local_settings import *
-except ImportError:
-    print("local_settings file not found!")
+# try:
+#     from local_settings import *
+# except ImportError:
+#     print("local_settings file not found!")

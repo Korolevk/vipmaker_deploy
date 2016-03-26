@@ -28,14 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1']
 
 
-# Application definition
-
-# TEMPLATE_DIRS = (
-#   'c://Users/Кирилл/PycharmProjects/AlibabaStudio/alibaba/templates',
-#   'c://Users/Кирилл/PycharmProjects/AlibabaStudio/loginsys/templates'
-# )
-
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,10 +120,11 @@ MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 
-STATIC_ROOT_DIR = 'static'
+# STATIC_ROOT_DIR = 'static'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder", "django.contrib.staticfiles.finders.AppDirectoriesFinder")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'))
-
+try:
+    from local_settings import *
+except ImportError:
+    print("local_settings file not found!")

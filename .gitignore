@@ -3,7 +3,6 @@
 luna.py
 .idea/workspace.xml
 
-__pycache__
 *.pyc
 *.pyo
 local_settings.py

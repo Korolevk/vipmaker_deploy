@@ -3,8 +3,11 @@
 
 .idea/workspace.xml
 
-*.pyc
 __pycache__
+*.pyc
+*.pyo
+local_settings.py
+#AlibabaStudio/local_settings.py
 myvenv
 db.sqlite3
 .DS_Store

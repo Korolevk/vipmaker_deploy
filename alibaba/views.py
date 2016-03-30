@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 import datetime
+from alibaba.other_functions_by_kirill import work_with_timezone as my_tz
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
 from django.http import HttpResponse, Http404, HttpResponseRedirect
@@ -10,6 +11,8 @@ from alibaba.other_functions_by_kirill import work_with_datetime as kirill
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.db.models import Q
+from django.utils import timezone
+import pytz
 
 
 def home(request):
@@ -355,6 +358,7 @@ def change_username(request):
 
     if request.POST:
         args['wall_poster'] = WallPoster.objects.filter(username=auth.get_user(request).username)
+        args['who_wall_poster'] = WallPoster.objects.filter(who_wall=auth.get_user(request).username)
         args['photo'] = Photo.objects.filter(username_photo=auth.get_user(request).username)
         args['cover'] = Cover.objects.filter(username_cover=auth.get_user(request).username)
         args['like'] = Like.objects.filter(username=auth.get_user(request).username)
@@ -378,6 +382,7 @@ def change_username(request):
 
                 # args['wall_poster'].username = username
                 args['wall_poster'].update(username=username)
+                args['who_wall_poster'].update(who_wall=username)
                 args['photo'].update(username_photo=username)
                 args['cover'].update(username_cover=username)
                 args['like'].update(username=username)
@@ -611,9 +616,8 @@ def my_followers_page(request, login):
 
     return render(request, 'alibaba/my_followers.html', args)
 
-
 # --- Добавляем запись на стену ---
-def add_poster(request, login):
+def add_poster(request, login, local_tz_from_query):
     if request.POST:
         form = PosterForm(request.POST, request.FILES)
         if form.is_valid():
@@ -624,9 +628,32 @@ def add_poster(request, login):
             forma.poster = user1
             forma.who_wall = user1.username
             forma.username = User.objects.get(username=auth.get_user(request).username)
-            month = datetime.datetime.now().month
-            now = datetime.datetime.now().strftime("%d {mounth} %Y {v} %H:%M").format(mounth=kirill.mounths[month], v='в')
+            # month = datetime.datetime.now().month
+            month = timezone.now().month
+
+            # Берем данные из POST запроса и разбиваем на континет и город
+            local_tz_from_query = local_tz_from_query.split('_')
+            continent = local_tz_from_query[0]
+            city = local_tz_from_query[1]
+            # преображаем в годный вид
+            end_name_of_local = '{}/{}'.format(continent,city)
+
+            # Если часовой пояс есть в my_tz, то помещаем в pytz его, Иначе помещаем туда 'Europe/Moscow'
+            if end_name_of_local in my_tz.timezone_locations:
+                server_timezone = pytz.timezone(end_name_of_local)
+            else:
+                server_timezone = pytz.timezone('Europe/Moscow')
+
+            # Локализируем текущую зону и достаем ее аббр
+            timezone_abr = server_timezone.localize(datetime.datetime.now()).tzname()
+            now = timezone.now().strftime("%d {mounth} %Y {v} %H:%M").format(mounth=kirill.mounths[month], v='в')
+
+            # Фиксируем разницу во времени
+            if timezone_abr in my_tz.timezone_abrs:
+                hour = datetime.datetime.now() + datetime.timedelta(hours=my_tz.timezone_abrs[timezone_abr])
+                now = hour.strftime("%d {mounth} %Y {v} %H:%M").format(hour=hour, mounth=kirill.mounths[month], v='в')
             forma.date_of_poster_add = now
+
             try:
                 forma.poster_photo = Photo.objects.get(username_photo=auth.get_user(request).username).profile_photo.url
             except ObjectDoesNotExist:
@@ -639,12 +666,15 @@ def add_poster(request, login):
 def delete_poster(request, poster_id, username):
     try:
         user = User.objects.get(username=username)
+    except ObjectDoesNotExist:
+        return redirect('/')
+    try:
         poster = WallPoster.objects.get(id=poster_id)
         poster.poster_file.delete()
         poster.delete()
         return redirect('/user/{}/'.format(user))
     except ObjectDoesNotExist:
-        raise Http404
+        return redirect('/user/{}/'.format(user))
 
 
 def add_like(request, poster_id, username):

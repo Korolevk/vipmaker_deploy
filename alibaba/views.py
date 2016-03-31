@@ -616,6 +616,7 @@ def my_followers_page(request, login):
 
     return render(request, 'alibaba/my_followers.html', args)
 
+
 # --- Добавляем запись на стену ---
 def add_poster(request, login, local_tz_from_query):
     if request.POST:
@@ -652,7 +653,7 @@ def add_poster(request, login, local_tz_from_query):
             if timezone_abr in my_tz.timezone_abrs:
                 hour = datetime.datetime.now() + datetime.timedelta(hours=my_tz.timezone_abrs[timezone_abr])
                 now = hour.strftime("%d {mounth} %Y {v} %H:%M").format(hour=hour, mounth=kirill.mounths[month], v='в')
-            forma.date_of_poster_add = now
+            forma.date_of_poster_add = now+' | '+timezone_abr
 
             try:
                 forma.poster_photo = Photo.objects.get(username_photo=auth.get_user(request).username).profile_photo.url

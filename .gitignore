@@ -1,12 +1,8 @@
-# settings ignore
-#AlibabaStudio/settings.py
 luna.py
-.idea/workspace.xml
-
+.idea/
 *.pyc
 *.pyo
-local_settings.py
-#AlibabaStudio/local_settings.py
+
 myvenv
 db.sqlite3
 .DS_Store
@@ -16,6 +12,9 @@ uploads/files_on_wall/*
 uploads/profile_photoes/*
 !addPhoto.png
 !fon.jpg
+
+# igonre private settings
+AlibabaStudio/settings/local.py
 
 # ignore messages
 tmp/messages/*

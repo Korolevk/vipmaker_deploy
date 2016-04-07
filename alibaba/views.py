@@ -629,7 +629,7 @@ def add_poster(request, login, local_tz_from_query):
             forma.poster = user1
             forma.who_wall = user1.username
             forma.username = User.objects.get(username=auth.get_user(request).username)
-            # month = datetime.datetime.now().month
+
             month = timezone.now().month
 
             # Берем данные из POST запроса и разбиваем на континет и город
@@ -652,8 +652,9 @@ def add_poster(request, login, local_tz_from_query):
             # Фиксируем разницу во времени
             if timezone_abr in my_tz.timezone_abrs:
                 hour = datetime.datetime.now() + datetime.timedelta(hours=my_tz.timezone_abrs[timezone_abr])
+                month = hour.month
                 now = hour.strftime("%d {mounth} %Y {v} %H:%M").format(hour=hour, mounth=kirill.mounths[month], v='в')
-            forma.date_of_poster_add = now+' | '+timezone_abr
+            forma.date_of_poster_add = now
 
             try:
                 forma.poster_photo = Photo.objects.get(username_photo=auth.get_user(request).username).profile_photo.url

@@ -15,7 +15,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -65,7 +64,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.core.context_processors.media',
+                'django.template.context_processors.media',
+                # 'django.core.context_processors.media',
             ],
         },
     },
@@ -120,9 +120,10 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp/messages/'
 
-MEDIA_ROOT_DIR = 'uploads'
+# MEDIA_ROOT_DIR = 'uploads'
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+# MEDIA_ROOT = "/home/kirill/Рабочий стол/vipmaker/uploads/"
 
 
 STATIC_URL = '/static/'

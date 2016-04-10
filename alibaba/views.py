@@ -2,7 +2,7 @@
 import datetime
 from alibaba.other_functions_by_kirill import work_with_timezone as my_tz
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from alibaba.forms import PosterForm, PhotoUpdateForm, CoverUpdateForm
@@ -13,7 +13,6 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.utils import timezone
 import pytz
-
 
 def home(request):
     return HttpResponse('<h1>Home, sweet home<br></h1><a href="/">На главную</a>')
@@ -56,7 +55,6 @@ def settings(request):
                     # args['file_error'] = 'Это фото по умолчанию!'
                     return redirect('/settings/?photo=default_photo')
 
-                # args['img'] = Photo.objects.get(username_photo=args['user'])
                 args['img'].profile_photo.delete()
                 args['img'].delete()
 

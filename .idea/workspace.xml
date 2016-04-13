@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3fef5cc-3e55-4982-9207-149255caca0c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AlibabaStudio/settings/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AlibabaStudio/settings/base.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AlibabaStudio/settings/local.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AlibabaStudio/settings/local.py.skeleton" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AlibabaStudio/uploads/files_on_wall/fon.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AlibabaStudio/uploads/profile_photoes/addPhoto.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AlibabaStudio/uploads/profile_photoes/fon.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlibabaStudio/urls.py" afterPath="$PROJECT_DIR$/AlibabaStudio/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alibaba/models.py" afterPath="$PROJECT_DIR$/alibaba/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/files_on_wall/fon.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/profile_photoes/addPhoto.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/profile_photoes/fon.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AlibabaStudio/local_settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AlibabaStudio/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alibaba/views.py" afterPath="$PROJECT_DIR$/alibaba/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
     </list>
     <ignored path="AlibabaStudio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,10 +39,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="local_settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="local_settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlibabaStudio/local_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.029173419">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
@@ -63,6 +55,32 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/alibaba/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64181525">
+              <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+              <folding>
+                <element signature="e#23#38#0" expanded="true" />
+                <element signature="e#7584#11709#0" expanded="false" />
+                <element signature="e#11742#14197#0" expanded="false" />
+                <element signature="e#14234#16247#0" expanded="false" />
+                <element signature="e#16284#19983#0" expanded="false" />
+                <element signature="e#20018#21635#0" expanded="false" />
+                <element signature="e#21660#22299#0" expanded="false" />
+                <element signature="e#22348#24527#0" expanded="false" />
+                <element signature="e#24605#27565#0" expanded="false" />
+                <element signature="e#27653#28270#0" expanded="false" />
+                <element signature="e#28358#29094#0" expanded="false" />
+                <element signature="e#29190#31432#0" expanded="false" />
+                <element signature="e#31488#31857#0" expanded="false" />
+                <element signature="e#31908#34409#0" expanded="false" />
+                <marker date="1460564376972" expanded="true" signature="30711:30911" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,13 +142,13 @@
         <option value="$PROJECT_DIR$/AlibabaStudio/settings/local.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/supper.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/local_settings.py" />
-        <option value="$PROJECT_DIR$/alibaba/views.py" />
         <option value="$PROJECT_DIR$/loginsys/views.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/urls.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/settings.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/wsgi.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/alibaba/views.py" />
       </list>
     </option>
   </component>
@@ -200,89 +218,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="profile_photoes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlibabaStudio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vipmaker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="files_on_wall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlibabaStudio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vipmaker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loginsys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlibabaStudio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vipmaker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="alibaba" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlibabaStudio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vipmaker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alibaba" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="other_functions_by_kirill" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlibabaStudio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vipmaker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AlibabaStudio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -642,77 +578,77 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>580</line>
+          <line>579</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>326</line>
+          <line>325</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>333</line>
+          <line>332</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>330</line>
+          <line>329</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>405</line>
+          <line>404</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>410</line>
+          <line>409</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>140</line>
+          <line>139</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>139</line>
+          <line>138</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>148</line>
+          <line>147</line>
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>149</line>
+          <line>148</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>130</line>
+          <line>129</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>131</line>
+          <line>130</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>123</line>
+          <line>122</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>124</line>
+          <line>123</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>383</line>
+          <line>382</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -1064,31 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alibaba/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <folding>
-            <element signature="e#23#38#0" expanded="true" />
-            <element signature="e#839#1096#0" expanded="false" />
-            <element signature="e#7615#11740#0" expanded="false" />
-            <element signature="e#11773#14228#0" expanded="false" />
-            <element signature="e#14265#16278#0" expanded="false" />
-            <element signature="e#16315#20014#0" expanded="false" />
-            <element signature="e#20049#21666#0" expanded="false" />
-            <element signature="e#21691#22330#0" expanded="false" />
-            <element signature="e#22379#24558#0" expanded="false" />
-            <element signature="e#24636#27596#0" expanded="false" />
-            <element signature="e#27684#28301#0" expanded="false" />
-            <element signature="e#28389#29125#0" expanded="false" />
-            <element signature="e#29221#31463#0" expanded="false" />
-            <element signature="e#31519#31888#0" expanded="false" />
-            <element signature="e#31939#34440#0" expanded="false" />
-            <marker date="1460456417077" expanded="true" signature="30742:30942" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginsys/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18401487">
@@ -1119,14 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17504051">
@@ -1139,9 +1042,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlibabaStudio/local_settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029173419">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64181525">
+          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+          <folding>
+            <element signature="e#23#38#0" expanded="true" />
+            <element signature="e#7584#11709#0" expanded="false" />
+            <element signature="e#11742#14197#0" expanded="false" />
+            <element signature="e#14234#16247#0" expanded="false" />
+            <element signature="e#16284#19983#0" expanded="false" />
+            <element signature="e#20018#21635#0" expanded="false" />
+            <element signature="e#21660#22299#0" expanded="false" />
+            <element signature="e#22348#24527#0" expanded="false" />
+            <element signature="e#24605#27565#0" expanded="false" />
+            <element signature="e#27653#28270#0" expanded="false" />
+            <element signature="e#28358#29094#0" expanded="false" />
+            <element signature="e#29190#31432#0" expanded="false" />
+            <element signature="e#31488#31857#0" expanded="false" />
+            <element signature="e#31908#34409#0" expanded="false" />
+            <marker date="1460564376972" expanded="true" signature="30711:30911" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

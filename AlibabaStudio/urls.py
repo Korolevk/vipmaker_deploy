@@ -10,16 +10,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 
-from django.conf.urls import include, url
+from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from django.conf import settings
-from django.conf.urls.static import static
+from django.conf.urls.static import static as st
+from django.views import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^auth/', include('loginsys.urls')),
+    url(r'^profile_photoes/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}),
+    url(r'^files_on_wall/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^', include('alibaba.urls'))
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += st(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += st(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

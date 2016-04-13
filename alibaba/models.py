@@ -49,6 +49,7 @@ class Cover(models.Model):
     class Meta():
         verbose_name = 'Обложка'
         verbose_name_plural = 'Обложки'
+    # rand = models.CharField(max_length=100, verbose_name='')
     profile = models.ForeignKey(User)
     username_cover = models.CharField(max_length=100, default='')
     profile_cover = models.ImageField(upload_to='profile_photoes', default='/static/alibaba/images/fon.jpg')

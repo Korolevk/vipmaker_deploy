@@ -21,6 +21,7 @@ def about(request):
     args = {}
     args.update(csrf(request))
     args['my_login'] = auth.get_user(request).username
+    args['my_login'] = auth.au
     # args['posters'] = WallPoster.objects.filter(username='vipmaker')[0:3]
     return render(request, 'alibaba/about.html', args)
 

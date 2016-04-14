@@ -3,6 +3,7 @@ from django.db import models
 from datetime import datetime, timezone
 from django.contrib.auth.models import User
 
+
 class SecretKey(models.Model):
     class Meta():
         verbose_name = "Секретный ключ"
@@ -11,6 +12,7 @@ class SecretKey(models.Model):
 
     def __str__(self):
         return self.secret_key
+
 
 class WallPoster(models.Model):
     class Meta():
@@ -92,7 +94,9 @@ class Follow(models.Model):
         verbose_name = 'Интересная Станица'
         verbose_name_plural = 'Интересные Страницы'
         ordering = ['follow_username']
-    profile = models.ForeignKey(User)
+
+    profile_follow = models.ForeignKey(User)
+    whoes_profile_page = models.CharField(max_length=100, default='')
 
     follow_username = models.CharField(max_length=100, default='')
     follow_first_name = models.CharField(max_length=100, default='')

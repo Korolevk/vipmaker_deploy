@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.shortcuts import render, redirect, render_to_response
@@ -11,6 +10,7 @@ from django.contrib.auth.models import User
 from alibaba.other_functions_by_kirill import end_of_name
 from django.core.mail import send_mail
 from AlibabaStudio.settings import EMAIL_HOST_USER
+
 
 def signup(request):
     args = {}
@@ -74,6 +74,7 @@ def signup(request):
     else:
         return render(request, 'loginsys/signup.html')
 
+
 def login(request):
     if auth.get_user(request).username:
         return redirect('/user/{userlogin}/'.format(userlogin=auth.get_user(request).username))
@@ -98,6 +99,7 @@ def login(request):
             return render_to_response('loginsys/login.html', args)
     else:
         return render(request, 'loginsys/login.html', args)
+
 
 def user(request, login):
     args = {}
@@ -124,15 +126,11 @@ def user(request, login):
             args['word'] = end_of_name.end(args['count_posters'])
             args['login'] = login
             # Мои интересные страницы
-            args['i_follow'] = Follow.objects.filter(profile=args['user'])
+            args['i_follow'] = Follow.objects.filter(whoes_profile_page=args['user'].username)
             args['i_follow_count'] = args['i_follow'].count()
             # Те, кому я интересен
             args['me_follow'] = Follow.objects.filter(follow_username=args['user'].username)
             args['me_follow_count'] = args['me_follow'].count()
-            # if Follow.objects.filter(followers_username=args['my_login'], follow_username=args['user'].username):
-            #     args['button_status'] = 'already_follow'
-            # else:
-            #     args['button_status'] = 'not_follow'
         else:
             if auth.get_user(request).username:
                 poster_form = PosterForm()
@@ -145,7 +143,7 @@ def user(request, login):
                 args['word'] = end_of_name.end(args['count_posters'])
                 args['login'] = login
                 # Интересные страницы пользователя
-                args['i_follow'] = Follow.objects.filter(profile=args['user'])
+                args['i_follow'] = Follow.objects.filter(whoes_profile_page=args['user'].username)
                 args['i_follow_count'] = args['i_follow'].count()
                 # Те, кому пользователь интересен
                 args['me_follow'] = Follow.objects.filter(follow_username=args['user'].username)
@@ -174,10 +172,12 @@ def forgot_pass(request):
         return render(request, 'loginsys/forgot_pass.html', {'error':error})
     return render(request, 'loginsys/forgot_pass.html')
 
+
 def success_forgot(request):
     if auth.get_user(request).username:
         return redirect('/user/{userlogin}/'.format(userlogin=auth.get_user(request).username))
     return render(request, 'loginsys/success_forgot.html')
+
 
 def send_password_on_mail(request):
     if auth.get_user(request).username:
@@ -185,7 +185,7 @@ def send_password_on_mail(request):
     if request.POST:
         email = request.POST.get('email', '')
         if User.objects.filter(email=email).count() != 0:
-            send_mail('Восстановление пароля Vipmaker', 'Запрос на воостановление', EMAIL_HOST_USER, [email])
+            send_mail('Восстановление пароля vipmakergold.ru', 'Запрос на воостановление', EMAIL_HOST_USER, [email])
         else:
             return redirect('/auth/forgot_pass/?error=no_email')
         return redirect('/auth/success_forgot/')

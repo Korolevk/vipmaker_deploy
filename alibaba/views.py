@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.utils import timezone
 import pytz
+import platform
 
 def home(request):
     return HttpResponse('<h1>Home, sweet home<br></h1><a href="/">На главную</a>')
@@ -460,7 +461,8 @@ def news(request):
     args['my_login'] = auth.get_user(request).username
     u = args['user'].id
 
-    args['i_follow'] = Follow.objects.filter(profile=args['user']).values_list('follow_username', flat=True)
+    args['i_follow'] = Follow.objects.filter(whoes_profile_page=args['user'].username).values_list('follow_username', flat=True)
+    args['i_follow_count'] = Follow.objects.filter(whoes_profile_page=args['user'].username).count()
 
     # args['a'] = Follow.objects.filter(profile=args['user']).values_list('follow_username', flat=True)
 
@@ -551,7 +553,8 @@ def follow_button(request, login):
         followers_username=iam.username,
         followers_first_name=iam.first_name,
         followers_photo=photo2.profile_photo,
-        profile=iam,
+        whoes_profile_page=iam.username,
+        profile_follow=iam,
         follow_username=user.username,
         follow_first_name=user.first_name,
         follow_photo=photo.profile_photo
@@ -584,7 +587,7 @@ def follow_page(request, login):
     args['user'] = User.objects.get(username=login)
 
     # Те, на кого подписан пользователь
-    args['i_follow'] = Follow.objects.filter(profile=args['user'])
+    args['i_follow'] = Follow.objects.filter(followers_username=args['user'].username)
 
     # Список тех, кто интересен мне
     args['i_follow2'] = Follow.objects.filter(followers_username=args['my_login']).values_list('follow_username', flat=True)
@@ -649,9 +652,12 @@ def add_poster(request, login, local_tz_from_query):
 
             # Фиксируем разницу во времени
             if timezone_abr in my_tz.timezone_abrs:
-                hour = datetime.datetime.now() + datetime.timedelta(hours=my_tz.timezone_abrs[timezone_abr])
+                if platform.system() == 'Windows':
+                    hour = timezone.now() + datetime.timedelta(hours=my_tz.timezone_abrs[timezone_abr])
+                else:
+                    hour = datetime.datetime.now() + datetime.timedelta(hours=my_tz.timezone_abrs[timezone_abr])
                 month = hour.month
-                now = hour.strftime("%d {mounth} %Y {v} %H:%M").format(hour=hour, mounth=kirill.mounths[month], v='в')
+                now = hour.strftime("%d {mounth} %Y {v} %H:%M  (UTC+{UTC_timezone})").format(hour=hour, mounth=kirill.mounths[month], v='в', UTC_timezone=my_tz.timezone_abrs[timezone_abr])
             forma.date_of_poster_add = now
 
             try:

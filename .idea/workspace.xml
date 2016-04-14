@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3fef5cc-3e55-4982-9207-149255caca0c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/files_on_wall/fon.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/profile_photoes/addPhoto.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/profile_photoes/fon.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AlibabaStudio/local_settings.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AlibabaStudio/settings.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alibaba/migrations/0012_auto_20160407_0915.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/AlibabaStudio.iml" afterPath="$PROJECT_DIR$/.idea/AlibabaStudio.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AlibabaStudio/local_settings.py" afterPath="$PROJECT_DIR$/AlibabaStudio/local_settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alibaba/models.py" afterPath="$PROJECT_DIR$/alibaba/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alibaba/templates/alibaba/base_user.html" afterPath="$PROJECT_DIR$/alibaba/templates/alibaba/base_user.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alibaba/templates/alibaba/news.html" afterPath="$PROJECT_DIR$/alibaba/templates/alibaba/news.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alibaba/views.py" afterPath="$PROJECT_DIR$/alibaba/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/views.py" afterPath="$PROJECT_DIR$/loginsys/views.py" />
     </list>
     <ignored path="AlibabaStudio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,47 +44,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="local_settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="local_settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlibabaStudio/local_settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.46655232">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/alibaba/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64181525">
-              <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="659" column="63" selection-start-line="659" selection-start-column="63" selection-end-line="659" selection-end-column="63" />
               <folding>
                 <element signature="e#23#38#0" expanded="true" />
-                <element signature="e#7584#11709#0" expanded="false" />
-                <element signature="e#11742#14197#0" expanded="false" />
-                <element signature="e#14234#16247#0" expanded="false" />
-                <element signature="e#16284#19983#0" expanded="false" />
-                <element signature="e#20018#21635#0" expanded="false" />
-                <element signature="e#21660#22299#0" expanded="false" />
-                <element signature="e#22348#24527#0" expanded="false" />
-                <element signature="e#24605#27565#0" expanded="false" />
-                <element signature="e#27653#28270#0" expanded="false" />
-                <element signature="e#28358#29094#0" expanded="false" />
-                <element signature="e#29190#31432#0" expanded="false" />
-                <element signature="e#31488#31857#0" expanded="false" />
-                <element signature="e#31908#34409#0" expanded="false" />
-                <marker date="1460564376972" expanded="true" signature="30711:30911" placeholder="..." />
+                <element signature="e#855#1081#0" expanded="false" />
+                <element signature="e#1111#7566#0" expanded="false" />
+                <element signature="e#7600#11725#0" expanded="false" />
+                <element signature="e#11758#14213#0" expanded="false" />
+                <element signature="e#14250#16263#0" expanded="false" />
+                <element signature="e#16300#19999#0" expanded="false" />
+                <element signature="e#20034#21651#0" expanded="false" />
+                <element signature="e#21676#22436#0" expanded="false" />
+                <element signature="e#22485#24664#0" expanded="false" />
+                <element signature="e#24742#27750#0" expanded="false" />
+                <element signature="e#27838#28475#0" expanded="false" />
+                <element signature="e#28563#29299#0" expanded="false" />
+                <element signature="e#31944#32313#0" expanded="false" />
+                <element signature="e#32364#34865#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginsys/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="181" column="35" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />
+              <folding>
+                <element signature="e#23#76#0" expanded="true" />
+                <element signature="e#599#3981#0" expanded="false" />
+                <element signature="e#4008#5056#0" expanded="false" />
+                <element signature="e#5089#8002#0" expanded="false" />
+                <element signature="e#8030#8075#0" expanded="false" />
+                <element signature="e#8108#8436#0" expanded="false" />
+                <element signature="e#8472#8662#0" expanded="false" />
+                <element signature="e#8705#9231#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -125,7 +139,6 @@
         <option value="$PROJECT_DIR$/tmp/messages/20160317-204444-61450512.log" />
         <option value="$PROJECT_DIR$/alibaba/forms.py" />
         <option value="$PROJECT_DIR$/loginsys/templates/loginsys/login.html" />
-        <option value="$PROJECT_DIR$/alibaba/templates/alibaba/news.html" />
         <option value="$PROJECT_DIR$/alibaba/templates/alibaba/search.html" />
         <option value="$PROJECT_DIR$/luna.py" />
         <option value="$PROJECT_DIR$/local_settings.py" />
@@ -136,19 +149,20 @@
         <option value="$PROJECT_DIR$/alibaba/urls.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/settings/__init__.py" />
         <option value="$PROJECT_DIR$/alibaba/templates/alibaba/settings.html" />
-        <option value="$PROJECT_DIR$/alibaba/templates/alibaba/base_user.html" />
         <option value="$PROJECT_DIR$/AlibabaStudio/settings/base.py" />
-        <option value="$PROJECT_DIR$/alibaba/models.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/settings/local.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/supper.py" />
-        <option value="$PROJECT_DIR$/AlibabaStudio/local_settings.py" />
-        <option value="$PROJECT_DIR$/loginsys/views.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/urls.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/settings.py" />
         <option value="$PROJECT_DIR$/AlibabaStudio/wsgi.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/alibaba/models.py" />
+        <option value="$PROJECT_DIR$/loginsys/views.py" />
+        <option value="$PROJECT_DIR$/alibaba/templates/alibaba/news.html" />
         <option value="$PROJECT_DIR$/alibaba/views.py" />
+        <option value="$PROJECT_DIR$/alibaba/templates/alibaba/base_user.html" />
+        <option value="$PROJECT_DIR$/AlibabaStudio/local_settings.py" />
       </list>
     </option>
   </component>
@@ -158,9 +172,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1301" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -188,8 +202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -218,7 +232,35 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="loginsys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlibabaStudio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vipmaker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="alibaba" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlibabaStudio" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vipmaker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AlibabaStudio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -227,7 +269,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vipmaker2" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -489,10 +531,10 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="AlibabaStudio.settings" />
+        <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.4" />
+      <option name="SDK_HOME" value="C:\Python\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -510,8 +552,8 @@
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Django server.AlibabaStudio" />
-      <item index="1" class="java.lang.String" itemvalue="Python.views" />
+      <item index="0" class="java.lang.String" itemvalue="Python.views" />
+      <item index="1" class="java.lang.String" itemvalue="Django server.AlibabaStudio" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -533,26 +575,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24541833" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19894099" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26275116" sideWeight="0.5091633" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32828686" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60123646" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12210201" sideWeight="0.49083665" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4222586" sideWeight="0.49083665" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32766616" sideWeight="0.4969743" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@AlibabaStudio" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3371522" sideWeight="0.4969743" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="manage.py@AlibabaStudio" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48222566" sideWeight="0.4969743" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -578,77 +620,77 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>579</line>
+          <line>575</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>325</line>
+          <line>326</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>332</line>
+          <line>333</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>329</line>
+          <line>330</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>404</line>
+          <line>405</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>409</line>
+          <line>410</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>139</line>
+          <line>140</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>138</line>
+          <line>139</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>147</line>
+          <line>148</line>
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>148</line>
+          <line>149</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>129</line>
+          <line>130</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>130</line>
+          <line>131</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>122</line>
+          <line>123</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>123</line>
+          <line>124</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/views.py</url>
-          <line>382</line>
+          <line>383</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -668,8 +710,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/alibaba/models.py</url>
-          <line>51</line>
+          <line>53</line>
           <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/alibaba/views.py</url>
+          <line>589</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/alibaba/views.py</url>
+          <line>604</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/alibaba/views.py</url>
+          <line>555</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/alibaba/views.py</url>
+          <line>556</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/alibaba/models.py</url>
+          <line>98</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/loginsys/views.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/loginsys/views.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="django-line">
           <url>file://$PROJECT_DIR$/alibaba/templates/alibaba/search.html</url>
@@ -692,18 +769,55 @@
           <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="115" />
+      <option name="time" value="126" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/AlibabaStudio/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#38#0" expanded="true" />
+            <element signature="e#855#1081#0" expanded="false" />
+            <element signature="e#1111#7566#0" expanded="false" />
+            <element signature="e#7600#11725#0" expanded="false" />
+            <element signature="e#11758#14213#0" expanded="false" />
+            <element signature="e#14250#16263#0" expanded="false" />
+            <element signature="e#16300#19999#0" expanded="false" />
+            <element signature="e#20034#21651#0" expanded="false" />
+            <element signature="e#21676#22436#0" expanded="false" />
+            <element signature="e#22485#24664#0" expanded="false" />
+            <element signature="e#24742#27750#0" expanded="false" />
+            <element signature="e#27838#28475#0" expanded="false" />
+            <element signature="e#28563#29299#0" expanded="false" />
+            <element signature="e#31944#32313#0" expanded="false" />
+            <element signature="e#32364#34865#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -763,20 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/follow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077">
-          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/my_followers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6362007">
-          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -833,13 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/news.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6542373">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alibaba/static/alibaba/images/oIKVMdILNTc.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -849,13 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.4/dist-packages/django/utils/timezone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3318584">
-          <caret line="128" column="6" selection-start-line="128" selection-start-column="6" selection-end-line="128" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -896,20 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/messages/20160323-044627-140368055470064.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/messages/20160407-173348-139999646810352.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5217391">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginsys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16107382">
@@ -917,31 +989,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6ce117a9-2e13-4fe4-947b-d6cce7138ff7/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f816a089-ddb6-466f-8dbc-1108e2224f3a/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alibaba/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.16693678">
           <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/base_user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.137288">
-          <caret line="249" column="5" selection-start-line="249" selection-start-column="5" selection-end-line="249" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -974,20 +1025,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.4/dist-packages/django/conf/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.096256">
-          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlibabaStudio/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.598513">
           <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding>
-            <element signature="e#474#525#0" expanded="true" />
+            <element signature="e#474#525#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1000,33 +1043,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginsys/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18401487">
-          <caret line="106" column="55" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
-          <folding>
-            <element signature="e#23#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alibaba/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03345725">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-          <folding>
-            <element signature="e#23#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlibabaStudio/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43494424">
           <caret line="13" column="62" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="62" />
-          <folding>
-            <element signature="e#229#238#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1034,17 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17504051">
           <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AlibabaStudio/local_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,27 +1065,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/migrations/0011_secretkey.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/migrations/0013_auto_20160413_2336.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/migrations/0012_auto_20160413_2243.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/my_followers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.153847">
+          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/follow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.307692">
+          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4716981">
+          <caret line="98" column="22" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/base_user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23877917">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba/templates/alibaba/news.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.518851">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/alibaba/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64181525">
-          <caret line="22" column="54" selection-start-line="22" selection-start-column="54" selection-end-line="22" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="659" column="63" selection-start-line="659" selection-start-column="63" selection-end-line="659" selection-end-column="63" />
           <folding>
             <element signature="e#23#38#0" expanded="true" />
-            <element signature="e#7584#11709#0" expanded="false" />
-            <element signature="e#11742#14197#0" expanded="false" />
-            <element signature="e#14234#16247#0" expanded="false" />
-            <element signature="e#16284#19983#0" expanded="false" />
-            <element signature="e#20018#21635#0" expanded="false" />
-            <element signature="e#21660#22299#0" expanded="false" />
-            <element signature="e#22348#24527#0" expanded="false" />
-            <element signature="e#24605#27565#0" expanded="false" />
-            <element signature="e#27653#28270#0" expanded="false" />
-            <element signature="e#28358#29094#0" expanded="false" />
-            <element signature="e#29190#31432#0" expanded="false" />
-            <element signature="e#31488#31857#0" expanded="false" />
-            <element signature="e#31908#34409#0" expanded="false" />
-            <marker date="1460564376972" expanded="true" signature="30711:30911" placeholder="..." />
+            <element signature="e#855#1081#0" expanded="false" />
+            <element signature="e#1111#7566#0" expanded="false" />
+            <element signature="e#7600#11725#0" expanded="false" />
+            <element signature="e#11758#14213#0" expanded="false" />
+            <element signature="e#14250#16263#0" expanded="false" />
+            <element signature="e#16300#19999#0" expanded="false" />
+            <element signature="e#20034#21651#0" expanded="false" />
+            <element signature="e#21676#22436#0" expanded="false" />
+            <element signature="e#22485#24664#0" expanded="false" />
+            <element signature="e#24742#27750#0" expanded="false" />
+            <element signature="e#27838#28475#0" expanded="false" />
+            <element signature="e#28563#29299#0" expanded="false" />
+            <element signature="e#31944#32313#0" expanded="false" />
+            <element signature="e#32364#34865#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginsys/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="35" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />
+          <folding>
+            <element signature="e#23#76#0" expanded="true" />
+            <element signature="e#599#3981#0" expanded="false" />
+            <element signature="e#4008#5056#0" expanded="false" />
+            <element signature="e#5089#8002#0" expanded="false" />
+            <element signature="e#8030#8075#0" expanded="false" />
+            <element signature="e#8108#8436#0" expanded="false" />
+            <element signature="e#8472#8662#0" expanded="false" />
+            <element signature="e#8705#9231#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlibabaStudio/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46655232">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

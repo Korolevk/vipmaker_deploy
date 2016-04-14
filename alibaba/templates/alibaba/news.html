@@ -15,7 +15,13 @@
         </tr>
     </table>
     <table class="results" align="center" style="margin-top: 30px;">
-    {% if posters_count == 0 %}
+    {% if posters_count == 0 and i_follow_count > 0 %}
+        <tr>
+            <td><p class="query_error">
+                  Интересные Вам люди еще не разместили ни одной записи.
+            </p></td>
+        </tr>
+    {% elif posters_count == 0 %}
         <tr>
             <td><p class="query_error">
                   Чтобы получать новости подпишитесь на тех, кто вам интересен!

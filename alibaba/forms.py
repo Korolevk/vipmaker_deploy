@@ -4,6 +4,7 @@ from django import forms
 from alibaba.models import WallPoster, Photo, Cover
 from django.contrib.auth.models import User
 
+
 class PosterForm(ModelForm):
     class Meta():
         model = WallPoster
@@ -68,4 +69,3 @@ class CoverUpdateForm(ModelForm):
 #                                                 'name': 'password',
 #                                                 'placeholder': 'Пароль'
 #                                             }),
-#         }

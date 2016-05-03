@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 __author__ = 'Kirill Korolev'
 from decimal import Decimal
+
+
 def end(number):
     word = ''
     answer = (Decimal(number) / Decimal(10)) / Decimal(10)

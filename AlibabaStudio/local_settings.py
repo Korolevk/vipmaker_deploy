@@ -19,9 +19,9 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pycharm_test',
+        'NAME': 'vipmaker_test3',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': 'qazzaq123',
         # 'HOST': '127.0.0.1',
         # 'PORT': '3306',
     }

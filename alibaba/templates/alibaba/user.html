@@ -26,7 +26,26 @@
                                 {% endif %}
                               </div>
                         </td>
-                        <td><h1 style="color: #fff;padding: 0px 15px;">{{ user.first_name|truncatechars:25 }}</h1><p style="color: #989898;padding: 0px 15px;">{{ user.username|truncatechars:25 }}</p>
+                        <td>
+
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h1 style="color: #fff;padding:0px 10px 0px 15px;">{{ user.first_name|truncatechars:25 }}</h1>
+                                    </td>
+                                    {% if user.username in vip_persons %}
+                                        <td>
+                                            <img class="ver" src="{% static "alibaba/images/ver.png" %}" alt="Подтвержденная страница" width="30">
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: #989898;padding: 0px 15px;">{{ user.username|truncatechars:25 }}</p>
+                                    </td>
+                                </tr>
+                            </table>
+
                             <table class="info">
                                 <tr>
                                     <td><a href="#">{{ count_posters }} {{ word }}</a></td>
@@ -41,7 +60,7 @@
         </tr>
         <tr>
             <td>
-                <form class="forma" enctype="multipart/form-data" action="/posters/add_poster/{{ user.username }}/{{ 'Asia_Novokuznetsk' }}/" method="post" style="padding: 80px 0px 50px 0px;">
+                <form class="forma" enctype="multipart/form-data" action="/posters/add_poster/{{ user.username }}/{{ 'Asia_Novokuznetsk' }}/" method="post" style="padding: 50px 0px 50px 0px;">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <table>
@@ -88,7 +107,7 @@
                                 {% if not poster.poster_file and poster.text == ''%}
                                     Пустая запись
                                 {% else %}
-                                    {{ poster.text }}
+                                    {{ poster.text|linebreaksbr }}
                                 {% endif %}
                             </p>
 {#                            <p>{{ poster.id }}</p>#}

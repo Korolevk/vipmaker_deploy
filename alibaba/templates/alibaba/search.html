@@ -67,7 +67,7 @@
                         {% if not query_poster.poster_file and query_poster.text == ''%}
                             Пустая запись
                         {% else %}
-                            {{ query_poster.text }}
+                            {{ query_poster.text|linebreaksbr }}
                         {% endif %}
 {#                        {{ query_poster.text }}#}
                     </p>

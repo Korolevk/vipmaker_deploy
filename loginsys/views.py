@@ -4,7 +4,7 @@ from django.http import Http404
 from django.shortcuts import render, redirect, render_to_response
 from django.template.context_processors import csrf
 from alibaba.forms import PosterForm
-from alibaba.models import WallPoster, Photo, Cover, Follow, MyFollowers, SecretKey
+from alibaba.models import WallPoster, Photo, Cover, Follow, MyFollowers, SecretKey, Vip_peoples
 from django.contrib import auth
 from django.contrib.auth.models import User
 from alibaba.other_functions_by_kirill import end_of_name
@@ -114,6 +114,10 @@ def user(request, login):
         args['cover_url'] = args['cover'].profile_cover.url
     except ObjectDoesNotExist:
         args['cover_url'] = '/static/alibaba/images/fon.jpg'
+
+    if Vip_peoples.objects.filter(vip_person=login).count() > 0:
+        args['vip_persons'] = Vip_peoples.objects.filter(vip_person=login).values_list('vip_person', flat=True)
+
     try:
         if login == auth.get_user(request).username:
             poster_form = PosterForm()

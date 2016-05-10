@@ -61,7 +61,7 @@
                                 {% if not poster.poster_file and poster.text == ''%}
                                     Пустая запись
                                 {% else %}
-                                    {{ poster.text }}
+                                    {{ poster.text|linebreaksbr }}
                                 {% endif %}
                             </p>
 {#                            <p>{{ poster.id }}</p>#}

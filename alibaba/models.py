@@ -3,6 +3,16 @@ from django.db import models
 from datetime import datetime, timezone
 from django.contrib.auth.models import User
 
+class Vip_peoples(models.Model):
+    class Meta():
+        verbose_name = "Вип человек"
+        verbose_name_plural = "Вип персоны"
+
+    vip_person = models.CharField(default="", max_length=100)
+
+    def __str__(self):
+        return self.vip_person
+
 
 class SecretKey(models.Model):
     class Meta():

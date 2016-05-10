@@ -11,6 +11,7 @@ class PosterForm(ModelForm):
         fields = ['text','poster_file']
         widgets = {
             'text': forms.Textarea(attrs={
+                                            'wrap': 'virtual',
                                             'class': 'textarea',
                                             'name': 'article_textarea',
                                             'placeholder': 'Что у вас нового?',

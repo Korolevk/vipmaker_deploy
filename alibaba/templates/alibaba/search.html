@@ -108,6 +108,11 @@
                                                 <p class="name_on_wall">{{ photo_of_users.first_name_photo }}</p>
                                             </a>
                                         </td>
+                                        {% if photo_of_users.username_photo in vip_persons %}
+                                        <td>
+                                            <img class="ver_in_search" src="{% static "alibaba/images/ver.png" %}" alt="Подтвержденная страница" width="30">
+                                        </td>
+                                    {% endif %}
                                     </tr>
                                     <tr>
                                         {% if photo_of_users.username_photo == my_login%}

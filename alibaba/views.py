@@ -6,7 +6,7 @@ from django.template.context_processors import csrf
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from alibaba.forms import PosterForm, PhotoUpdateForm, CoverUpdateForm
-from alibaba.models import WallPoster, Like, Photo, Cover, MyFollowers, Follow
+from alibaba.models import WallPoster, Like, Photo, Cover, MyFollowers, Follow, Vip_peoples
 from alibaba.other_functions_by_kirill import work_with_datetime as kirill
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -484,10 +484,6 @@ def search(request):
     args['i_follow'] = Follow.objects.filter(followers_username=args['my_login']).values_list('follow_username', flat=True)
     args['i_follow_list'] = []
     args['i_follow_list'].extend(args['i_follow'])
-    # Список тех, кому интересен я
-    # args['me_follow'] = Follow.objects.filter(follow_username=args['my_login']).values_list('followers_username', flat=True)
-    # args['me_follow_list'] = []
-    # args['me_follow_list'].extend(args['me_follow'])
 
     if request.GET:
         args['select_search'] = request.GET.get('select_search','')
@@ -497,6 +493,11 @@ def search(request):
             if args['photoes_of_users'] > 0:
                 # args['users_in_query'] = User.objects.filter(Q(first_name__contains=args['query_search']))
                 args['photoes_of_users'] = Photo.objects.filter(Q(first_name_photo__contains=args['query_search']))
+
+                # Ищем верифицированные страницы
+                args['posters_of_users_list'] = Photo.objects.filter(Q(first_name_photo__contains=args['query_search'])).values_list("username_photo", flat=True)
+                if Vip_peoples.objects.filter(vip_person__in=args['posters_of_users_list']).count() > 0:
+                    args['vip_persons'] = Vip_peoples.objects.filter(vip_person__in=args['posters_of_users_list']).values_list('vip_person', flat=True)
             else:
                 args['error'] = 'Ни одного пользователя не найдено!'
         elif args['select_search'] == 'По записям':

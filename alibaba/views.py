@@ -495,9 +495,9 @@ def search(request):
                 args['photoes_of_users'] = Photo.objects.filter(Q(first_name_photo__contains=args['query_search']))
 
                 # Ищем верифицированные страницы
-                args['posters_of_users_list'] = Photo.objects.filter(Q(first_name_photo__contains=args['query_search'])).values_list("username_photo", flat=True)
-                if Vip_peoples.objects.filter(vip_person__in=args['posters_of_users_list']).count() > 0:
-                    args['vip_persons'] = Vip_peoples.objects.filter(vip_person__in=args['posters_of_users_list']).values_list('vip_person', flat=True)
+                args['photoes_of_users_list'] = Photo.objects.filter(Q(first_name_photo__contains=args['query_search'])).values_list("username_photo", flat=True)
+                if Vip_peoples.objects.filter(vip_person__in=args['photoes_of_users_list']).count() > 0:
+                    args['vip_persons'] = Vip_peoples.objects.filter(vip_person__in=args['photoes_of_users_list']).values_list('vip_person', flat=True)
             else:
                 args['error'] = 'Ни одного пользователя не найдено!'
         elif args['select_search'] == 'По записям':

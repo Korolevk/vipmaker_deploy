@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import datetime
 from alibaba.other_functions_by_kirill import work_with_timezone as my_tz
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.template.context_processors import csrf
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
@@ -70,6 +70,13 @@ def settings(request):
                 args['img'] = Photo.objects.get(username_photo=args['user'])
                 poster_photoes = WallPoster.objects.filter(username=auth.get_user(request).username)
                 poster_photoes.update(poster_photo=args['img'].profile_photo.url)
+
+                follow = Follow.objects.filter(followers_username=args['user'])
+                follow.update(followers_photo=args['img'].profile_photo.url)
+
+                follow = Follow.objects.filter(follow_username=args['user'])
+                follow.update(follow_photo=args['img'].profile_photo.url)
+
                 # args['file_error'] = 'фото изменено!'
                 return redirect('/settings/?photo=success_photo')
 
@@ -689,43 +696,41 @@ def add_like(request, poster_id, username):
         poster = WallPoster.objects.get(id=poster_id)
         user = User.objects.get(username=username)
 
-        if Like.objects.filter(username = auth.get_user(request).username, poster_on_wall=poster,who_likes =user.username).count() == 1:
-            poster.likes -= 1
-            poster.save()
-            likes = Like.objects.get(username = auth.get_user(request).username,who_likes =user.username,poster_on_wall = poster)
-            likes.delete()
-
-            # Если запись найдена в поиске возвращает на стр поиска, а не на user page
-            if request.GET.get('from','') == 'search':
-                query_search = request.GET.get('query_search','')
-                select_search = request.GET.get('select_search','')
-                redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search,s=select_search)
-                return redirect(redirect_str)
-            elif request.GET.get('from','') == 'news':
-                return redirect('/news/')
-            return redirect('/user/{}/'.format(user.username))
-
-        elif Like.objects.filter(username = auth.get_user(request).username, poster_on_wall=poster,who_likes =user.username).count() > 0:
-            if request.GET.get('from','') == 'search':
-                query_search = request.GET.get('query_search','')
-                select_search = request.GET.get('select_search','')
-                redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search,s=select_search)
-                return redirect(redirect_str)
-            elif request.GET.get('from','') == 'news':
-                return redirect('/news/')
-            return redirect('/user/{}/'.format(user.username))
-        else:
-            likes = Like.objects.create(username = auth.get_user(request).username,who_likes =user.username,poster_on_wall = poster)
-            likes.save()
-            poster.likes += 1
-            poster.save()
-            if request.GET.get('from','') == 'search':
-                query_search = request.GET.get('query_search','')
-                select_search = request.GET.get('select_search','')
-                redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search,s=select_search)
-                return redirect(redirect_str)
-            elif request.GET.get('from','') == 'news':
-                return redirect('/news/')
-            return redirect('/user/{}/'.format(user.username))
     except ObjectDoesNotExist:
-        raise Http404
+        return redirect('/')
+
+    exception_error = 'like exist'
+
+    try:
+        Like.objects.get(username=auth.get_user(request).username, poster_on_wall=poster, who_likes=user.username)
+    except ObjectDoesNotExist:
+        exception_error = 'like is not exist'
+    except MultipleObjectsReturned:
+        exception_error = 'MultipleObjectsReturned'
+
+    if exception_error == 'like is not exist':
+        poster.likes += 1
+        poster.save()
+        like = Like.objects.create(username=auth.get_user(request).username, poster_on_wall=poster, who_likes=user.username)
+        like.save()
+    elif exception_error == 'like exist':
+        poster.likes -= 1
+        poster.save()
+        like = Like.objects.get(username=auth.get_user(request).username, poster_on_wall=poster, who_likes=user.username)
+        like.delete()
+    elif exception_error == 'MultipleObjectsReturned':
+        Like.objects.filter(username=auth.get_user(request).username, poster_on_wall=poster, who_likes=user.username).delete()
+    else:
+        return redirect('/')
+
+    # Если запись найдена в поиске возвращает на стр поиска, а не на user page
+    if request.GET.get('from', '') == 'search':
+        query_search = request.GET.get('query_search', '')
+        select_search = request.GET.get('select_search', '')
+        redirect_str = '/search/?query_search={q}&select_search={s}'.format(q=query_search, s=select_search)
+        return redirect(redirect_str)
+
+    elif request.GET.get('from', '') == 'news':
+        return redirect('/news/')
+
+    return redirect('/user/{}/'.format(user.username))

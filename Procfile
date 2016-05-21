@@ -1,0 +1,1 @@
+web: gunicorn AlibabaStudio.wsgi --log-file -

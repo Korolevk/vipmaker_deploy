@@ -15,8 +15,10 @@ from django.utils import timezone
 import pytz
 import platform
 
+
 def home(request):
     return HttpResponse('<h1>Home, sweet home<br></h1><a href="/">На главную</a>')
+
 
 def about(request):
     args = {}
@@ -461,6 +463,7 @@ def base_settings(request):
     else:
         return render(request, 'alibaba/settings.html', {'base_settings_error':'error'})
 
+
 def news(request):
     args = {}
     args.update(csrf(request))
@@ -476,6 +479,7 @@ def news(request):
     args['posters'] = WallPoster.objects.filter(username__in=args['i_follow'])
     args['posters_count'] = WallPoster.objects.filter(username__in=args['i_follow']).count()
     return render(request, 'alibaba/news.html', args)
+
 
 # --- Search Page ---
 def search(request):

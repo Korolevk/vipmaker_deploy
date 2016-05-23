@@ -19,7 +19,6 @@ import platform
 def home(request):
     return HttpResponse('<h1>Home, sweet home<br></h1><a href="/">На главную</a>')
 
-
 def about(request):
     args = {}
     args.update(csrf(request))

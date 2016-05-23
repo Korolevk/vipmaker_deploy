@@ -29,6 +29,8 @@ def about(request):
 
 
 def settings(request):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     try:
         args = {}
         args.update(csrf(request))
@@ -170,6 +172,8 @@ def settings(request):
 
 
 def change_cover(request):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     try:
         args = {}
         args.update(csrf(request))
@@ -248,6 +252,8 @@ def change_cover(request):
 
 
 def change_name(request):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     try:
         args = {}
         args.update(csrf(request))
@@ -301,6 +307,8 @@ def change_name(request):
 
 
 def change_password(request):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     args = {}
     args.update(csrf(request))
     # Передается фото и обложка, отображающаяся в настройках
@@ -347,6 +355,8 @@ def change_password(request):
 
 
 def change_username(request):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     args = {}
     args.update(csrf(request))
     args['my_login'] = auth.get_user(request).username
@@ -425,6 +435,8 @@ def change_username(request):
 
 
 def base_settings(request):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     args = {}
     args.update(csrf(request))
     # Передается фото и обложка, отображающаяся в настройках
@@ -465,6 +477,8 @@ def base_settings(request):
 
 
 def news(request):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     args = {}
     args.update(csrf(request))
     args['user'] = User.objects.get(username=auth.get_user(request).username)
@@ -527,6 +541,8 @@ def search(request):
 
 # --- Кнопка подписаться/отписаться
 def follow_button(request, login):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     user = User.objects.get(username=login)
     my_login = auth.get_user(request).username
     # Получаем пользователя у с данным логином
@@ -592,6 +608,8 @@ def follow_button(request, login):
 
 # Страница моих подписок, которые интересны мне
 def follow_page(request, login):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     args = {}
     args.update(csrf(request))
     args['my_login'] = auth.get_user(request).username
@@ -611,6 +629,8 @@ def follow_page(request, login):
 
 # Страница тех людей, которым интересен я
 def my_followers_page(request, login):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     args = {}
     args.update(csrf(request))
     args['my_login'] = auth.get_user(request).username
@@ -632,6 +652,8 @@ def my_followers_page(request, login):
 
 # --- Добавляем запись на стену ---
 def add_poster(request, login, local_tz_from_query):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     if request.POST:
         form = PosterForm(request.POST, request.FILES)
         if form.is_valid():
@@ -682,6 +704,8 @@ def add_poster(request, login, local_tz_from_query):
 
 
 def delete_poster(request, poster_id, username):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     try:
         user = User.objects.get(username=username)
     except ObjectDoesNotExist:
@@ -696,6 +720,8 @@ def delete_poster(request, poster_id, username):
 
 
 def add_like(request, poster_id, username):
+    if not auth.get_user(request).username:
+        return render(request, 'alibaba/anon_user.html')
     try:
         poster = WallPoster.objects.get(id=poster_id)
         user = User.objects.get(username=username)

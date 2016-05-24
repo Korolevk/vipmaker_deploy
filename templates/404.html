@@ -1,10 +1,84 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>404</title>
-</head>
-<body>
-    <h1>This 404 files in templates in vipmaker folder</h1>
-</body>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="shortcut icon" href="{% static 'alibaba/images/ico.png' %}" type="image/x-icon">
+    </head>
+<style>
+    p{
+        cursor: default;
+    }
+    p::selection{
+        background-color: #FF7F00;
+        color:#fff;
+    }
+    .image_404{
+        background: url('{% static 'alibaba/images/vipmaker_404.png' %}');
+        width: 500px;
+        height: 500px;
+        background-repeat: no-repeat;
+        float: left;
+    }
+    .number_text_404{
+        color: white;
+        font-family: Arial;
+        font-weight: 800;
+        font-size: 70px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .text_404 {
+        color: white;
+        font-family: Arial;
+        font-size: 30px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main_button{
+        padding: 10px 60px;
+        border-radius: 2px;
+        background: #FFF700 linear-gradient(to bottom,#FFE14F 0,#FF7600 100%);
+        border: none;
+        outline: none;
+        font-family: sans-serif;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        margin: 25px 40px;
+        position: absolute;
+}
+</style>
+    <body style="background-color: #272727;">
+        <table class="center_table" align="center">
+            <tr>
+                <td rowspan="2" style="padding: 0px 90px 0px 0px;">
+                    <div class="image_404"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="right_table_404">
+                        <tr>
+                            <td><p class="number_text_404">404</p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="text_404">Страница не найдена!</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="main_button">На главную!</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>

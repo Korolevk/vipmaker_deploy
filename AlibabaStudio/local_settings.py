@@ -4,7 +4,8 @@ SECRET_KEY = '0mgys*rp#qgel!@--h4tqxg52lr)9l5n=c7y3j3f)hv*b@rmc#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # False in production
-DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
